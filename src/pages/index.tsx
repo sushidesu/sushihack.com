@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head"
 
 const Home = () => (
   <div>
@@ -8,7 +8,7 @@ const Home = () => (
     </Head>
 
     <main>
-      <p>hello</p>
+      <p>format test</p>
     </main>
   </div>
 )
