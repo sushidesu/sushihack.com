@@ -1,11 +1,12 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import { GraphQLClient, gql } from "graphql-request"
+import marked from "marked"
 import { Layout } from "../../components/Layout"
 
 const PostPage = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
     <h1>{post.title}</h1>
-    <p>{post.body}</p>
+    <div dangerouslySetInnerHTML={{ __html: marked(post.body) }}></div>
   </Layout>
 )
 
