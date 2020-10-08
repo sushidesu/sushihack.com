@@ -1,12 +1,10 @@
 import { InferGetStaticPropsType, GetStaticProps } from "next"
 import Head from "next/head"
 import Link from "next/link"
-import { GraphQLClient, gql } from "graphql-request"
+import { graphQLClient, gql } from "../plugins/graphql"
 import { Layout } from "../components/Layout"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
-
   const query = gql`
     {
       posts {

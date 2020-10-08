@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
-import { GraphQLClient, gql } from "graphql-request"
 import marked from "marked"
+import { graphQLClient, gql } from "../../plugins/graphql"
 import { Layout } from "../../components/Layout"
 
 const PostPage = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => (
@@ -11,8 +11,6 @@ const PostPage = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => (
 )
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
-
   const query = gql`
     {
       posts {
@@ -36,8 +34,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<{ post: Post }> = async ({
   params,
 }) => {
-  const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
-
   const query = gql`
     query PostPageQuery($slug: String!) {
       post(where: { slug: $slug }) {
@@ -49,7 +45,7 @@ export const getStaticProps: GetStaticProps<{ post: Post }> = async ({
   `
 
   const { post } = await graphQLClient.request<{ post: Post }>(query, {
-    slug: params.slug,
+    slug: params?.slug,
   })
 
   return {
