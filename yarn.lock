@@ -4280,6 +4280,13 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
+onigasm@^2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/onigasm/-/onigasm-2.2.5.tgz#cc4d2a79a0fa0b64caec1f4c7ea367585a676892"
+  integrity sha512-F+th54mPc0l1lp1ZcFMyL/jTs2Tlq4SqIHKIXGZOR/VkHkF9A7Fr5rRr5+ZG/lWeRsyrClLYRq7s/yFQ/XhWCA==
+  dependencies:
+    lru-cache "^5.1.1"
+
 opencollective-postinstall@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/opencollective-postinstall/-/opencollective-postinstall-2.0.3.tgz#7a0fff978f6dbfa4d006238fbac98ed4198c3259"
@@ -5128,6 +5135,31 @@ shell-quote@1.7.2:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
+shiki-languages@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/shiki-languages/-/shiki-languages-0.2.6.tgz#4525241c8f41eb783485148b3761d41b3e4f72f3"
+  integrity sha512-k2p+bYTdQbbJZoWeJwOBY3hs4OC5A5wCP+/M8Ksovk1L30HyBpGsn/C2soGy+xKCjU/rm3ofaGyCSttfP3Ztjw==
+  dependencies:
+    vscode-textmate "^5.2.0"
+
+shiki-themes@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/shiki-themes/-/shiki-themes-0.2.6.tgz#4d271187c9ce3823d7cc8256d8f998d6c936f462"
+  integrity sha512-566UwtYR29zTBEQKbN9v10y+PVSmCsvosoiBoloNBLnTXi1bI7ZjDH+TKkc0+9n9QvJ3kj3IUvmvXL6six1Rhg==
+  dependencies:
+    json5 "^2.1.0"
+    vscode-textmate "^5.2.0"
+
+shiki@^0.2.6:
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/shiki/-/shiki-0.2.6.tgz#e766702ea6ec20b5ab37c7fcb54d927fc71231ce"
+  integrity sha512-QGpzkZN59bingo/h4uJ85gh3QWBZEU7ZB1xFaq4eh2UZUWpOReo3V/7ouVvsZ07E9vblixCyDSrtdyVpg6IZLQ==
+  dependencies:
+    onigasm "^2.2.5"
+    shiki-languages "^0.2.6"
+    shiki-themes "^0.2.6"
+    vscode-textmate "^5.2.0"
+
 signal-exit@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
@@ -5839,6 +5871,11 @@ vm-browserify@1.1.2, vm-browserify@^1.0.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
+
+vscode-textmate@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/vscode-textmate/-/vscode-textmate-5.2.0.tgz#01f01760a391e8222fe4f33fbccbd1ad71aed74e"
+  integrity sha512-Uw5ooOQxRASHgu6C7GVvUxisKXfSgW4oFlO+aa+PAkgmH89O3CXxEEzNRNtHSqtXFTl0nAC1uYj0GMSH27uwtQ==
 
 watchpack-chokidar2@^2.0.0:
   version "2.0.0"
