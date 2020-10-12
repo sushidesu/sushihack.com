@@ -1,7 +1,7 @@
 import { AppProps } from "next/app"
 import { ThemeProvider } from "emotion-theming"
 import { Global, css } from "@emotion/core"
-import { Theme } from "../plugins/emotion"
+import { Theme } from "plugins/emotion"
 
 const theme: Theme = {
   color: {

@@ -1,8 +1,8 @@
 import { InferGetStaticPropsType, GetStaticProps } from "next"
 import Head from "next/head"
 import Link from "next/link"
-import { graphQLClient, gql } from "../plugins/graphql"
-import { Layout } from "../components/Layout"
+import { graphQLClient, gql } from "plugins/graphql"
+import { Layout } from "components/Layout"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const query = gql`

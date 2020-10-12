@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import marked from "marked"
 import { getHighlighter } from "shiki"
-import { graphQLClient, gql } from "../../plugins/graphql"
-import { isSupportedLanguage } from "../../utils/isSupportedLanguage"
-import { Layout } from "../../components/Layout"
+import { graphQLClient, gql } from "plugins/graphql"
+import { isSupportedLanguage } from "utils/isSupportedLanguage"
+import { Layout } from "components/Layout"
 
 const PostPage = ({
   post,
