@@ -31,17 +31,15 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <ul>
-          {posts.map((post) => (
-            <li key={post.id}>
-              <Link href={"/post/[slug]"} as={`/post/${post.slug}`}>
-                {post.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </main>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <Link href={"/post/[slug]"} as={`/post/${post.slug}`}>
+              {post.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </Layout>
   )
 }
