@@ -1,7 +1,8 @@
 import { InferGetStaticPropsType, GetStaticProps } from "next"
 import Head from "next/head"
-import Link from "next/link"
+import NextLink from "next/link"
 import { graphQLClient, gql } from "plugins/graphql"
+import { Grid, Card, Link } from "@geist-ui/react"
 import { Layout } from "components/Layout"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
@@ -31,15 +32,23 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ul>
+      <Grid.Container gap={2} justify="center">
         {posts.map((post) => (
-          <li key={post.id}>
-            <Link href={"/post/[slug]"} as={`/post/${post.slug}`}>
-              {post.title}
-            </Link>
-          </li>
+          <Grid xs={24} md={12} key={post.id}>
+            <Card shadow>
+              <NextLink
+                passHref
+                href={"/post/[slug]"}
+                as={`/post/${post.slug}`}
+              >
+                <Link>
+                  <h2>{post.title}</h2>
+                </Link>
+              </NextLink>
+            </Card>
+          </Grid>
         ))}
-      </ul>
+      </Grid.Container>
     </Layout>
   )
 }
