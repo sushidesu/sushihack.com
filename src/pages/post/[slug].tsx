@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
-import marked from "marked"
+import markdown from "markdown-it"
 import { getHighlighter } from "shiki"
 import { graphQLClient, gql } from "plugins/graphql"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
@@ -54,12 +54,12 @@ export const getStaticProps: GetStaticProps<{
   })
 
   const highlighter = await getHighlighter({ theme: "material-theme-lighter" })
-  const bodyHtml = marked(post.body, {
+  const md = markdown({
+    html: true,
     highlight: (code, lang) => {
       if (!highlighter.codeToHtml) {
         throw new Error()
       }
-
       if (isSupportedLanguage(lang)) {
         return highlighter.codeToHtml(code, lang)
       } else {
@@ -67,6 +67,7 @@ export const getStaticProps: GetStaticProps<{
       }
     },
   })
+  const bodyHtml = md.render(post.body)
 
   return {
     props: {
