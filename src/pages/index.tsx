@@ -42,8 +42,8 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                   <Dummy />
                   <NextLink
                     passHref
-                    href={"/post/[slug]"}
-                    as={`/post/${post.slug}`}
+                    href={"/posts/[slug]"}
+                    as={`/posts/${post.slug}`}
                   >
                     <Link>
                       <Title>{post.title}</Title>
