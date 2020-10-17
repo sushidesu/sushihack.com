@@ -13,6 +13,11 @@ export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
         id
         slug
         title
+        tags {
+          id
+          label
+          slug
+        }
       }
     }
   `
@@ -40,15 +45,22 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
               <Card shadow>
                 <Flex>
                   <Dummy />
-                  <NextLink
-                    passHref
-                    href={"/posts/[slug]"}
-                    as={`/posts/${post.slug}`}
-                  >
-                    <Link>
-                      <Title>{post.title}</Title>
-                    </Link>
-                  </NextLink>
+                  <div style={{ flex: "1 1 auto" }}>
+                    <NextLink
+                      passHref
+                      href={"/posts/[slug]"}
+                      as={`/posts/${post.slug}`}
+                    >
+                      <Link>
+                        <Title>{post.title}</Title>
+                      </Link>
+                    </NextLink>
+                    <div>
+                      {post.tags.map((tag) => (
+                        <span key={tag.id}>{tag.label}</span>
+                      ))}
+                    </div>
+                  </div>
                 </Flex>
               </Card>
             </Grid>
@@ -69,19 +81,16 @@ const Dummy = styled.span`
   width: 80px;
   height: 80px;
   border-radius: 0.4rem;
+  margin-right: 0.8em;
 `
 
 const Flex = styled.div`
   display: flex;
   justify-content: space-between;
-
-  & > a {
-    flex: 1 1 auto;
-  }
 `
 
 const Title = styled.h2`
-  margin: 0 0 0 0.8em;
+  margin: 0;
   font-size: 1.6rem;
 `
 
