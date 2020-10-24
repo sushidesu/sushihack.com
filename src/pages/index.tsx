@@ -60,7 +60,15 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                     <Tags>
                       {post.tags.map((tag) => (
                         <React.Fragment key={tag.id}>
-                          <Tag type="warning">{tag.label}</Tag>
+                          <Tag type="warning">
+                            <NextLink
+                              passHref
+                              href={`/tags/[slug]`}
+                              as={`/tags/${tag.slug}`}
+                            >
+                              <Link>{tag.label}</Link>
+                            </NextLink>
+                          </Tag>
                           <Spacer x={0.5} />
                         </React.Fragment>
                       ))}
