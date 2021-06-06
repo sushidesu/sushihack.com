@@ -85,14 +85,13 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   )
 }
 
-const Dummy = styled.span`
-  display: block;
-  background-color: #bde;
-  width: 80px;
-  height: 80px;
-  border-radius: 0.4rem;
-  margin-right: 0.8em;
-`
+function Dummy(): JSX.Element {
+  return (
+    <div
+      className={clsx("bg-blue-200", "w-20", "h-20", "rounded-sm", "mr-3")}
+    />
+  )
+}
 
 const Flex = styled.div`
   display: flex;
