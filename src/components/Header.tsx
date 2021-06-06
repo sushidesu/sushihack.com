@@ -1,28 +1,17 @@
 import Link from "next/link"
-import { styled } from "plugins/emotion"
 import { Container } from "./Container"
 
 export const Header = (): JSX.Element => (
-  <StyledHeader>
+  <header className="bg-yellow-300">
     <Container>
-      <Flex>
+      <div className="flex justify-between">
         <p>
           <Link href="/">This is a header</Link>
         </p>
         <p>
           <Link href="/about">About</Link>
         </p>
-      </Flex>
+      </div>
     </Container>
-  </StyledHeader>
+  </header>
 )
-
-const StyledHeader = styled.header`
-  background-color: #fdb;
-  overflow: hidden;
-`
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
