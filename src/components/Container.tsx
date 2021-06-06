@@ -1,7 +1,13 @@
-import { styled } from "plugins/emotion"
+import clsx from "clsx"
 
-export const Container = styled.div`
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 12px;
-`
+export type Props = {
+  children?: React.ReactNode
+}
+
+export function Container({ children }: Props): JSX.Element {
+  return (
+    <div className={clsx("max-w-screen-md", "my-0", "mx-auto", "py-0", "px-3")}>
+      {children}
+    </div>
+  )
+}
