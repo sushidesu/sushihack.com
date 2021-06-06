@@ -4,7 +4,7 @@ import Head from "next/head"
 import NextLink from "next/link"
 import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
-import { Grid, Link } from "@geist-ui/react"
+import { Grid } from "@geist-ui/react"
 import { Layout } from "components/Layout"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
@@ -47,15 +47,15 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                 <div className={clsx("flex", "justify-between")}>
                   <Dummy />
                   <div style={{ flex: "1 1 auto" }}>
-                    <NextLink
-                      passHref
-                      href={"/posts/[slug]"}
-                      as={`/posts/${post.slug}`}
-                    >
-                      <Link>
-                        <h2 className={clsx("text-xl")}>{post.title}</h2>
-                      </Link>
-                    </NextLink>
+                    <h2 className={clsx("text-xl")}>
+                      <NextLink
+                        passHref
+                        href={"/posts/[slug]"}
+                        as={`/posts/${post.slug}`}
+                      >
+                        <a>{post.title}</a>
+                      </NextLink>
+                    </h2>
                     <div className={clsx("flex", "mt-3")}>
                       {post.tags.map((tag) => (
                         <React.Fragment key={tag.id}>
@@ -74,7 +74,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                               href={`/tags/[slug]`}
                               as={`/tags/${tag.slug}`}
                             >
-                              <Link>{tag.label}</Link>
+                              <a>{tag.label}</a>
                             </NextLink>
                           </span>
                         </React.Fragment>
