@@ -1,4 +1,4 @@
-import { styled } from "plugins/emotion"
+import clsx from "clsx"
 import { Header } from "./Header"
 import { Footer } from "./Footer"
 import { Container } from "./Container"
@@ -8,22 +8,11 @@ export type Props = {
 }
 
 export const Layout = ({ children }: Props): JSX.Element => (
-  <Wrapper>
+  <div className={clsx("min-h-screen", "flex", "flex-col")}>
     <Header />
-    <Main>
+    <main className={clsx("flex-auto")}>
       <Container>{children}</Container>
-    </Main>
+    </main>
     <Footer />
-  </Wrapper>
+  </div>
 )
-
-const Wrapper = styled.div`
-  max-width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-`
-
-const Main = styled.main`
-  flex: 1 1 auto;
-`
