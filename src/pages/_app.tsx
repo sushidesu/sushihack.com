@@ -3,6 +3,7 @@ import { CssBaseline } from "@geist-ui/react"
 import { ThemeProvider } from "emotion-theming"
 import { Global, css } from "@emotion/core"
 import { Theme } from "plugins/emotion"
+import "windi.css"
 
 const theme: Theme = {
   color: {
