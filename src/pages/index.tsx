@@ -4,7 +4,7 @@ import Head from "next/head"
 import NextLink from "next/link"
 import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
-import { Grid, Link, Tag, Spacer } from "@geist-ui/react"
+import { Grid, Link, Spacer } from "@geist-ui/react"
 import { Layout } from "components/Layout"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
@@ -60,7 +60,15 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                     <div className={clsx("flex")}>
                       {post.tags.map((tag) => (
                         <React.Fragment key={tag.id}>
-                          <Tag type="warning">
+                          <span
+                            className={clsx(
+                              "border",
+                              "border-yellow-400",
+                              "rounded-sm",
+                              "px-1.5",
+                              "py-0.5"
+                            )}
+                          >
                             <NextLink
                               passHref
                               href={`/tags/[slug]`}
@@ -68,7 +76,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                             >
                               <Link>{tag.label}</Link>
                             </NextLink>
-                          </Tag>
+                          </span>
                           <Spacer x={0.5} />
                         </React.Fragment>
                       ))}
