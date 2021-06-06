@@ -54,7 +54,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                       as={`/posts/${post.slug}`}
                     >
                       <Link>
-                        <Title>{post.title}</Title>
+                        <h2 className={clsx("text-xl")}>{post.title}</h2>
                       </Link>
                     </NextLink>
                     <Spacer y={0.5} />
@@ -92,10 +92,5 @@ function Dummy(): JSX.Element {
     />
   )
 }
-
-const Title = styled.h2`
-  margin: 0;
-  font-size: 1.6rem;
-`
 
 export default Home
