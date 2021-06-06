@@ -6,6 +6,7 @@ import { graphQLClient, gql } from "plugins/graphql"
 import styled from "@emotion/styled"
 import { Grid, Card, Link, Tag, Spacer } from "@geist-ui/react"
 import { Layout } from "components/Layout"
+import clsx from "clsx"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const query = gql`
@@ -39,7 +40,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Section>
+      <section className={clsx("py-5")}>
         <Grid.Container gap={2} justify="center">
           {posts.map((post) => (
             <Grid xs={24} md={12} key={post.id}>
@@ -79,14 +80,10 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
             </Grid>
           ))}
         </Grid.Container>
-      </Section>
+      </section>
     </Layout>
   )
 }
-
-const Section = styled.section`
-  padding: 3rem 0;
-`
 
 const Dummy = styled.span`
   display: block;
