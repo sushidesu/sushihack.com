@@ -45,7 +45,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           {posts.map((post) => (
             <Grid xs={24} md={12} key={post.id}>
               <Card shadow>
-                <Flex>
+                <div className={clsx("flex", "justify-between")}>
                   <Dummy />
                   <div style={{ flex: "1 1 auto" }}>
                     <NextLink
@@ -75,7 +75,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                       ))}
                     </Tags>
                   </div>
-                </Flex>
+                </div>
               </Card>
             </Grid>
           ))}
@@ -92,11 +92,6 @@ function Dummy(): JSX.Element {
     />
   )
 }
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
 
 const Tags = styled.div`
   display: flex;
