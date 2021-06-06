@@ -2,11 +2,10 @@ import React from "react"
 import { InferGetStaticPropsType, GetStaticProps } from "next"
 import Head from "next/head"
 import NextLink from "next/link"
+import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
-import styled from "@emotion/styled"
 import { Grid, Card, Link, Tag, Spacer } from "@geist-ui/react"
 import { Layout } from "components/Layout"
-import clsx from "clsx"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const query = gql`
