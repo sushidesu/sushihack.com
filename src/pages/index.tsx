@@ -58,7 +58,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                       </Link>
                     </NextLink>
                     <Spacer y={0.5} />
-                    <Tags>
+                    <div className={clsx("flex")}>
                       {post.tags.map((tag) => (
                         <React.Fragment key={tag.id}>
                           <Tag type="warning">
@@ -73,7 +73,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                           <Spacer x={0.5} />
                         </React.Fragment>
                       ))}
-                    </Tags>
+                    </div>
                   </div>
                 </div>
               </Card>
@@ -92,10 +92,6 @@ function Dummy(): JSX.Element {
     />
   )
 }
-
-const Tags = styled.div`
-  display: flex;
-`
 
 const Title = styled.h2`
   margin: 0;
