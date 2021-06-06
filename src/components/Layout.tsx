@@ -3,7 +3,11 @@ import { Header } from "./Header"
 import { Footer } from "./Footer"
 import { Container } from "./Container"
 
-export const Layout: React.FC = ({ children }) => (
+export type Props = {
+  children?: React.ReactNode
+}
+
+export const Layout = ({ children }: Props): JSX.Element => (
   <Wrapper>
     <Header />
     <Main>
