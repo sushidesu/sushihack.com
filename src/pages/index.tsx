@@ -4,7 +4,7 @@ import Head from "next/head"
 import NextLink from "next/link"
 import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
-import { Grid, Card, Link, Tag, Spacer } from "@geist-ui/react"
+import { Grid, Link, Tag, Spacer } from "@geist-ui/react"
 import { Layout } from "components/Layout"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
@@ -43,7 +43,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <Grid.Container gap={2} justify="center">
           {posts.map((post) => (
             <Grid xs={24} md={12} key={post.id}>
-              <Card shadow>
+              <div className={clsx("shadow-md", "px-3", "py-4")}>
                 <div className={clsx("flex", "justify-between")}>
                   <Dummy />
                   <div style={{ flex: "1 1 auto" }}>
@@ -75,7 +75,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
                     </div>
                   </div>
                 </div>
-              </Card>
+              </div>
             </Grid>
           ))}
         </Grid.Container>
