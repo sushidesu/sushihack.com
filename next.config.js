@@ -5,7 +5,10 @@ const WindiCSSWebpackPlugin = require("windicss-webpack-plugin").default
 
 module.exports = (_, { defaultConfig }) =>
   withMDX({
-    webpack: (config) => {
+    webpack: (config, { isServer }) => {
+      if (!isServer) {
+        config.node = { fs: "empty", module: "empty" }
+      }
       config.plugins.push(
         new WindiCSSWebpackPlugin({
           scan: {
