@@ -48,6 +48,7 @@ const Wrapper = styled.div`
   pre {
     ${tw`my-6`}
     ${tw`py-3 px-6`}
+    ${tw`overflow-auto`}
     & code {
       ${tw`bg-transparent`}
     }
