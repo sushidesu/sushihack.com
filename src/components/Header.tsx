@@ -3,10 +3,10 @@ import clsx from "clsx"
 import { Container } from "./Container"
 
 export const Header = (): JSX.Element => (
-  <header className="bg-yellow-300">
+  <header className={clsx("bg-yellow-300", "py-3")}>
     <Container>
-      <div className={clsx("flex", "justify-between")}>
-        <p>
+      <div className={clsx("flex", "justify-between", "items-center")}>
+        <p className={clsx("text-2xl", "font-bold")}>
           <Link href="/">This is a header</Link>
         </p>
         <p>
