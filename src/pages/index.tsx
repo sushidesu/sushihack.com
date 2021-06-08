@@ -2,9 +2,8 @@ import React from "react"
 import { InferGetStaticPropsType, GetStaticProps } from "next"
 import Head from "next/head"
 import NextLink from "next/link"
+import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
-import styled from "@emotion/styled"
-import { Grid, Card, Link, Tag, Spacer } from "@geist-ui/react"
 import { Layout } from "components/Layout"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
@@ -39,76 +38,64 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Section>
-        <Grid.Container gap={2} justify="center">
-          {posts.map((post) => (
-            <Grid xs={24} md={12} key={post.id}>
-              <Card shadow>
-                <Flex>
+      <section className={clsx("py-5")}>
+        <div>
+          {posts.map((post, index) => (
+            <div className={clsx(index !== 0 && "mt-4")} key={post.id}>
+              <div className={clsx("shadow-md", "px-3", "py-4")}>
+                <div className={clsx("flex", "justify-between")}>
                   <Dummy />
                   <div style={{ flex: "1 1 auto" }}>
-                    <NextLink
-                      passHref
-                      href={"/posts/[slug]"}
-                      as={`/posts/${post.slug}`}
-                    >
-                      <Link>
-                        <Title>{post.title}</Title>
-                      </Link>
-                    </NextLink>
-                    <Spacer y={0.5} />
-                    <Tags>
+                    <h2 className={clsx("text-xl")}>
+                      <NextLink
+                        passHref
+                        href={"/posts/[slug]"}
+                        as={`/posts/${post.slug}`}
+                      >
+                        <a>{post.title}</a>
+                      </NextLink>
+                    </h2>
+                    <div className={clsx("flex", "mt-3")}>
                       {post.tags.map((tag) => (
                         <React.Fragment key={tag.id}>
-                          <Tag type="warning">
+                          <span
+                            className={clsx(
+                              "border",
+                              "border-yellow-400",
+                              "rounded-sm",
+                              "px-1.5",
+                              "py-0.5",
+                              "mr-3"
+                            )}
+                          >
                             <NextLink
                               passHref
                               href={`/tags/[slug]`}
                               as={`/tags/${tag.slug}`}
                             >
-                              <Link>{tag.label}</Link>
+                              <a>{tag.label}</a>
                             </NextLink>
-                          </Tag>
-                          <Spacer x={0.5} />
+                          </span>
                         </React.Fragment>
                       ))}
-                    </Tags>
+                    </div>
                   </div>
-                </Flex>
-              </Card>
-            </Grid>
+                </div>
+              </div>
+            </div>
           ))}
-        </Grid.Container>
-      </Section>
+        </div>
+      </section>
     </Layout>
   )
 }
 
-const Section = styled.section`
-  padding: 3rem 0;
-`
-
-const Dummy = styled.span`
-  display: block;
-  background-color: #bde;
-  width: 80px;
-  height: 80px;
-  border-radius: 0.4rem;
-  margin-right: 0.8em;
-`
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: space-between;
-`
-
-const Tags = styled.div`
-  display: flex;
-`
-
-const Title = styled.h2`
-  margin: 0;
-  font-size: 1.6rem;
-`
+function Dummy(): JSX.Element {
+  return (
+    <div
+      className={clsx("bg-blue-200", "w-20", "h-20", "rounded-sm", "mr-3")}
+    />
+  )
+}
 
 export default Home

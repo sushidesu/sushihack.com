@@ -1,28 +1,18 @@
 import Link from "next/link"
-import { styled } from "plugins/emotion"
+import clsx from "clsx"
 import { Container } from "./Container"
 
 export const Header = (): JSX.Element => (
-  <StyledHeader>
+  <header className={clsx("bg-yellow-300", "py-3")}>
     <Container>
-      <Flex>
-        <p>
+      <div className={clsx("flex", "justify-between", "items-center")}>
+        <p className={clsx("text-2xl", "font-bold")}>
           <Link href="/">This is a header</Link>
         </p>
         <p>
           <Link href="/about">About</Link>
         </p>
-      </Flex>
+      </div>
     </Container>
-  </StyledHeader>
+  </header>
 )
-
-const StyledHeader = styled.header`
-  background-color: #fdb;
-  overflow: hidden;
-`
-
-const Flex = styled.div`
-  display: flex;
-  justify-content: space-between;
-`

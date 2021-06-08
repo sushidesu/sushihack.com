@@ -1,19 +1,10 @@
-import { styled } from "plugins/emotion"
+import clsx from "clsx"
 import { Container } from "./Container"
 
 export const Footer = (): JSX.Element => (
-  <StyledFooter>
+  <footer className="bg-yellow-200">
     <Container>
-      <Centered>©️ sushidesu</Centered>
+      <p className={clsx("my-5", "text-center")}>©️ sushidesu</p>
     </Container>
-  </StyledFooter>
+  </footer>
 )
-
-const StyledFooter = styled.footer`
-  background-color: #bce;
-`
-
-const Centered = styled.p`
-  margin: 10px 0;
-  text-align: center;
-`
