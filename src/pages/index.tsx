@@ -34,7 +34,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
       <Head>
-        <title>Create Next App</title>
+        <title>sushihack</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
