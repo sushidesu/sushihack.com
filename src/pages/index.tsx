@@ -5,6 +5,7 @@ import NextLink from "next/link"
 import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
 import { Layout } from "components/Layout"
+import { ArticleCard } from "components/ArticleCard"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const query = gql`
@@ -39,50 +40,18 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       </Head>
 
       <section className={clsx("py-5")}>
-        <div>
-          {posts.map((post, index) => (
-            <div className={clsx(index !== 0 && "mt-4")} key={post.id}>
-              <div className={clsx("shadow-md", "px-3", "py-4")}>
-                <div className={clsx("flex", "justify-between")}>
-                  <Dummy />
-                  <div style={{ flex: "1 1 auto" }}>
-                    <h2 className={clsx("text-xl")}>
-                      <NextLink
-                        passHref
-                        href={"/posts/[slug]"}
-                        as={`/posts/${post.slug}`}
-                      >
-                        <a>{post.title}</a>
-                      </NextLink>
-                    </h2>
-                    <div className={clsx("flex", "mt-3")}>
-                      {post.tags.map((tag) => (
-                        <React.Fragment key={tag.id}>
-                          <span
-                            className={clsx(
-                              "border",
-                              "border-yellow-400",
-                              "rounded-sm",
-                              "px-1.5",
-                              "py-0.5",
-                              "mr-3"
-                            )}
-                          >
-                            <NextLink
-                              passHref
-                              href={`/tags/[slug]`}
-                              as={`/tags/${tag.slug}`}
-                            >
-                              <a>{tag.label}</a>
-                            </NextLink>
-                          </span>
-                        </React.Fragment>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className={clsx("space-y-6")}>
+          {posts.map((post) => (
+            <ArticleCard
+              key={post.id}
+              title={post.title}
+              path={`/posts/${post.slug}`}
+              tags={post.tags.map((tag) => ({
+                id: tag.id,
+                name: tag.label,
+                path: `/tags/${tag.slug}`,
+              }))}
+            />
           ))}
         </div>
       </section>
