@@ -30,9 +30,9 @@ export function ArticleCard({
         ></div>
       )}
       <div className={clsx("flex", "flex-col", "ml-6", "justify-between")}>
-        <p className={clsx("text-2xl", "font-bold")}>
+        <p className={clsx("text-xl", "font-bold")}>
           <Link href={path} passHref>
-            <a>{title}</a>
+            <a className={clsx("hover:text-blue-800")}>{title}</a>
           </Link>
         </p>
         <div className={clsx("space-x-3")}>
