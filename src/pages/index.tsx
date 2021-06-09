@@ -1,7 +1,6 @@
 import React from "react"
 import { InferGetStaticPropsType, GetStaticProps } from "next"
 import Head from "next/head"
-import NextLink from "next/link"
 import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
 import { Layout } from "components/Layout"
