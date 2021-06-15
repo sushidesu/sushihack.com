@@ -5,16 +5,19 @@ import { graphQLClient, gql } from "plugins/graphql"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
 import { Layout } from "components/Layout"
 import { Wysiwyg } from "components/Wysiwyg"
+import clsx from "clsx"
 
 const PostPage = ({
   post,
   bodyHtml,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
-    <h1>{post.title}</h1>
-    <Wysiwyg>
-      <div dangerouslySetInnerHTML={{ __html: bodyHtml }}></div>
-    </Wysiwyg>
+    <div className={clsx("bg-white", "rounded-md", "p-4")}>
+      <h1>{post.title}</h1>
+      <Wysiwyg>
+        <div dangerouslySetInnerHTML={{ __html: bodyHtml }}></div>
+      </Wysiwyg>
+    </div>
   </Layout>
 )
 

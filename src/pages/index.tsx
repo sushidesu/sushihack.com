@@ -38,7 +38,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className={clsx("py-5")}>
+      <section className={clsx("py-5", "bg-white", "rounded-md")}>
         <div className={clsx("space-y-6")}>
           {posts.map((post) => (
             <ArticleCard

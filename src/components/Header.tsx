@@ -8,10 +8,10 @@ export const Header = (): JSX.Element => (
       <div
         className={clsx("flex", "justify-between", "items-center", "px-0.5")}
       >
-        <p className={clsx("text-2xl", "font-bold")}>
+        <p className={clsx("text-2xl", "font-bold", "text-white")}>
           <Link href="/">sushihack</Link>
         </p>
-        <p className={clsx("text-blue-gray-500")}>
+        <p className={clsx("text-white")}>
           <Link href="/about">About</Link>
         </p>
       </div>

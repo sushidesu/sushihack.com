@@ -8,7 +8,7 @@ export type Props = {
 }
 
 export const Layout = ({ children }: Props): JSX.Element => (
-  <div className={clsx("min-h-screen", "flex", "flex-col")}>
+  <div className={clsx("min-h-screen", "flex", "flex-col", "bg-space-blue")}>
     <Header />
     <main className={clsx("flex-auto")}>
       <Container>{children}</Container>
