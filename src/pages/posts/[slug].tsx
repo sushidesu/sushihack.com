@@ -4,6 +4,7 @@ import { getHighlighter } from "shiki"
 import { graphQLClient, gql } from "plugins/graphql"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
 import { Layout } from "components/Layout"
+import { Wrapper } from "components/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg"
 
 const PostPage = ({
@@ -11,10 +12,12 @@ const PostPage = ({
   bodyHtml,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
-    <h1>{post.title}</h1>
-    <Wysiwyg>
-      <div dangerouslySetInnerHTML={{ __html: bodyHtml }}></div>
-    </Wysiwyg>
+    <Wrapper py px>
+      <h1>{post.title}</h1>
+      <Wysiwyg>
+        <div dangerouslySetInnerHTML={{ __html: bodyHtml }}></div>
+      </Wysiwyg>
+    </Wrapper>
   </Layout>
 )
 

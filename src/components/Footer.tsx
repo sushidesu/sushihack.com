@@ -2,9 +2,9 @@ import clsx from "clsx"
 import { Container } from "./Container"
 
 export const Footer = (): JSX.Element => (
-  <footer className={clsx("bg-blue-gray-100")}>
+  <footer className={clsx()}>
     <Container>
-      <p className={clsx("my-5", "text-center", "text-blue-gray-500")}>
+      <p className={clsx("my-5", "text-center", "text-blue-gray-800")}>
         ©️ sushidesu
       </p>
     </Container>

@@ -4,6 +4,7 @@ import Head from "next/head"
 import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
 import { Layout } from "components/Layout"
+import { Wrapper } from "components/Wrapper"
 import { ArticleCard } from "components/ArticleCard"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
@@ -38,31 +39,25 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className={clsx("py-5")}>
-        <div className={clsx("space-y-6")}>
-          {posts.map((post) => (
-            <ArticleCard
-              key={post.id}
-              title={post.title}
-              path={`/posts/${post.slug}`}
-              tags={post.tags.map((tag) => ({
-                id: tag.id,
-                name: tag.label,
-                path: `/tags/${tag.slug}`,
-              }))}
-            />
-          ))}
-        </div>
-      </section>
+      <Wrapper>
+        <section>
+          <div className={clsx("space-y-6")}>
+            {posts.map((post) => (
+              <ArticleCard
+                key={post.id}
+                title={post.title}
+                path={`/posts/${post.slug}`}
+                tags={post.tags.map((tag) => ({
+                  id: tag.id,
+                  name: tag.label,
+                  path: `/tags/${tag.slug}`,
+                }))}
+              />
+            ))}
+          </div>
+        </section>
+      </Wrapper>
     </Layout>
-  )
-}
-
-function Dummy(): JSX.Element {
-  return (
-    <div
-      className={clsx("bg-blue-200", "w-20", "h-20", "rounded-sm", "mr-3")}
-    />
   )
 }
 

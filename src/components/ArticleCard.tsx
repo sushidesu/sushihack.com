@@ -21,13 +21,11 @@ export function ArticleCard({
   tags,
 }: Props): JSX.Element {
   return (
-    <div className={clsx("shadow-sm", "rounded-sm", "flex", "px-2", "py-4")}>
+    <div className={clsx("shadow-sm", "rounded-sm", "flex", "px-3", "py-4")}>
       {thumbnailPath ? (
         <img src={thumbnailPath} />
       ) : (
-        <div
-          className={clsx("bg-blue-gray-300", "w-20", "h-20", "rounded-md")}
-        ></div>
+        <div className={clsx("bg-earth", "w-20", "h-20", "rounded-md")}></div>
       )}
       <div className={clsx("flex", "flex-col", "ml-6", "justify-between")}>
         <p className={clsx("text-xl", "font-bold")}>
