@@ -1,7 +1,12 @@
 import { Layout } from "components/Layout"
+import { Wysiwyg } from "components/Wysiwyg"
 
 # About me
 
 My name is [sushidesu](https://sushidesu.com).
 
-export default ({ children }) => <Layout>{ children }</Layout>
+export default ({ children }) => (
+  <Layout>
+    <Wysiwyg>{ children }</Wysiwyg>
+  </Layout>
+)
