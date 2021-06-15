@@ -1,4 +1,5 @@
 import { Layout } from "components/Layout"
+import { Wrapper } from "components/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg"
 
 # About me
@@ -7,6 +8,8 @@ My name is [sushidesu](https://sushidesu.com).
 
 export default ({ children }) => (
   <Layout>
-    <Wysiwyg>{ children }</Wysiwyg>
+    <Wrapper py px>
+      <Wysiwyg>{ children }</Wysiwyg>
+    </Wrapper>
   </Layout>
 )
