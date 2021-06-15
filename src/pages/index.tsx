@@ -58,12 +58,4 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   )
 }
 
-function Dummy(): JSX.Element {
-  return (
-    <div
-      className={clsx("bg-blue-200", "w-20", "h-20", "rounded-sm", "mr-3")}
-    />
-  )
-}
-
 export default Home
