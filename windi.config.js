@@ -5,6 +5,7 @@ export default defineConfig({
     extend: {
       colors: {
         "space-blue": "#839BC7",
+        earth: "#7CD3E6",
       },
     },
   },
