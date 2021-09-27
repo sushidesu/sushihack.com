@@ -4,7 +4,7 @@ import Head from "next/head"
 import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
 import { Layout } from "components/Layout"
-import { Wrapper } from "components/Wrapper"
+import { Wrapper } from "components/Wrapper/Wrapper"
 import { ArticleCard } from "components/ArticleCard"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
