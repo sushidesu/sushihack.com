@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import { graphQLClient, gql } from "plugins/graphql"
-import { Layout } from "components/Layout"
+import { Layout } from "components/Layout/Layout"
 
 const TagPage = ({ tag }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
