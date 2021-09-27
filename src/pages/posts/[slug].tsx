@@ -5,7 +5,7 @@ import { graphQLClient, gql } from "plugins/graphql"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
 import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
-import { Wysiwyg } from "components/Wysiwyg"
+import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
 
 const PostPage = ({
   post,

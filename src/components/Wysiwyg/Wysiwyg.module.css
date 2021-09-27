@@ -1,0 +1,19 @@
+.outer h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.outer p {
+  line-height: 2rem;
+}
+
+.outer :not([hidden]) + p {
+  margin-top: 1.5rem;
+}
+
+.outer a {
+  color: rgb(44, 110, 177);
+}
