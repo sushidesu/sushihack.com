@@ -1,6 +1,6 @@
 import Link from "next/link"
 import clsx from "clsx"
-import { Container } from "./Container"
+import { Container } from "./Container/Container"
 
 export const Header = (): JSX.Element => (
   <header className={clsx("py-3")}>
