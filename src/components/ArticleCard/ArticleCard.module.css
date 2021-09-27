@@ -1,0 +1,36 @@
+.outer {
+  display: flex;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 1.5rem;
+}
+
+.thumbnail_dummy {
+  background-color: #7CD3E6;
+  width: 5rem;
+  height: 5rem;
+  border-radius: .375rem;
+}
+
+.title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+}
+.title:hover {
+  color: rgba(30, 64, 175, 1);
+}
+
+.tags>:not([hidden])~:not([hidden]) {
+  margin-left: .75rem;
+}
+
+.tag {
+  padding: .5rem 1rem;
+  border-radius: .375rem;
+  color: rgba(71, 85, 105, 1);
+}

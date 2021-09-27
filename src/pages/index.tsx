@@ -5,7 +5,7 @@ import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
 import { Layout } from "components/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
-import { ArticleCard } from "components/ArticleCard"
+import { ArticleCard } from "components/ArticleCard/ArticleCard"
 
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const query = gql`
