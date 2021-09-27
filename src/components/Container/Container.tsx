@@ -1,4 +1,3 @@
-import clsx from "clsx"
 import styles from "./Container.module.css"
 
 export type Props = {
