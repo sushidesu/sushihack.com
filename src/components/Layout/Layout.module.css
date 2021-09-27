@@ -1,0 +1,10 @@
+.outer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(131, 155, 199, 1);
+}
+
+.main {
+  flex: 1 1 auto;
+}

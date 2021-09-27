@@ -3,7 +3,7 @@ import markdown from "markdown-it"
 import { getHighlighter } from "shiki"
 import { graphQLClient, gql } from "plugins/graphql"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
-import { Layout } from "components/Layout"
+import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg"
 

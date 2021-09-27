@@ -3,7 +3,7 @@ import { InferGetStaticPropsType, GetStaticProps } from "next"
 import Head from "next/head"
 import clsx from "clsx"
 import { graphQLClient, gql } from "plugins/graphql"
-import { Layout } from "components/Layout"
+import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
 import { ArticleCard } from "components/ArticleCard/ArticleCard"
 
