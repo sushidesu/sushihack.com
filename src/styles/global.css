@@ -1,4 +1,50 @@
+/* reference: global CSS in https://zenn.dev */
+
+:root {
+  --color-base: #000;
+  --color-base-bg: #fff;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
+  margin: 0;
+  color: var(--color-base);
+  background: var(--color-base-bg);
+  word-break: break-word;
+  word-wrap: break-word;
   font-family: "Inter", "BlinkMacSystemFont",
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+*,:after,:before {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  transition: .25s;
+  color: var(--color-base);
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.5;
+  outline: 0
+}
+
+ol,ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
 }
