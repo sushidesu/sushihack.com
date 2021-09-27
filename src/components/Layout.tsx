@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { Header } from "./Header"
-import { Footer } from "./Footer"
+import { Footer } from "./Footer/Footer"
 import { Container } from "./Container/Container"
 
 export type Props = {
