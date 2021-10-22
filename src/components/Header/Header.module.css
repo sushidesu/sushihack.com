@@ -10,12 +10,12 @@
 }
 
 .logo {
-  color: white;
+  color: var(--color-white);
   font-size: 1.5rem;
   line-height: 2rem;
   font-weight: 700;
 }
 
 .about {
-  color: white;
+  color: var(--color-white);
 }

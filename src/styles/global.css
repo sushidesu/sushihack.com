@@ -2,7 +2,11 @@
 
 :root {
   --color-base: #000;
-  --color-base-bg: #fff;
+  --color-white: #fff;
+  --color-primary: #7CD3E6;
+  --color-primary-bg: rgba(131, 155, 199, 1);
+  --color-link: rgba(30, 64, 175, 1);
+  --color-gray-dark: rgba(71, 85, 105, 1);
 }
 
 html {

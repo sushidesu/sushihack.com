@@ -10,7 +10,7 @@
 }
 
 .thumbnail_dummy {
-  background-color: #7CD3E6;
+  background-color: var(--color-primary);
   width: 5rem;
   height: 5rem;
   border-radius: .375rem;
@@ -22,7 +22,7 @@
   font-weight: 700;
 }
 .title:hover {
-  color: rgba(30, 64, 175, 1);
+  color: var(--color-link);
 }
 
 .tags>:not([hidden])~:not([hidden]) {
@@ -32,5 +32,5 @@
 .tag {
   padding: .5rem 1rem;
   border-radius: .375rem;
-  color: rgba(71, 85, 105, 1);
+  color: var(--color-gray-dark);
 }

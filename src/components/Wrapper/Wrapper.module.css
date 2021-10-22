@@ -1,5 +1,5 @@
 .wrapper {
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: .375rem;
   padding: .5rem 1rem;
 }

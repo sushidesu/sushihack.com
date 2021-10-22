@@ -1,5 +1,5 @@
 .copyright {
-  color: rgba(30, 41, 59, 1);
+  color: var(--color-gray-dark);
   text-align: center;
   margin: 1.25rem 0;
 }

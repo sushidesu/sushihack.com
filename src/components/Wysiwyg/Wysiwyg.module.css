@@ -15,5 +15,5 @@
 }
 
 .outer a {
-  color: rgb(44, 110, 177);
+  color: var(--color-link);
 }
