@@ -6,8 +6,10 @@ export const Header = (): JSX.Element => (
   <header className={styles.outer}>
     <Container>
       <div className={styles.inner}>
-        <p className={styles.logo}>
-          <Link href="/">sushihack</Link>
+        <p>
+          <Link href="/">
+            <a className={styles.logo}>sushihack</a>
+          </Link>
         </p>
         <p className={styles.about}>
           <Link href="/about">About</Link>
