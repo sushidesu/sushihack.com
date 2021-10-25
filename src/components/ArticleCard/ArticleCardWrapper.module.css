@@ -1,0 +1,3 @@
+.outer>:not([hidden])~:not([hidden]) {
+  margin-top: 1.5rem;
+}

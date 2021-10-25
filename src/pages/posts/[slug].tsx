@@ -3,16 +3,16 @@ import markdown from "markdown-it"
 import { getHighlighter } from "shiki"
 import { graphQLClient, gql } from "plugins/graphql"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
-import { Layout } from "components/Layout"
-import { Wrapper } from "components/Wrapper"
-import { Wysiwyg } from "components/Wysiwyg"
+import { Layout } from "components/Layout/Layout"
+import { Wrapper } from "components/Wrapper/Wrapper"
+import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
 
 const PostPage = ({
   post,
   bodyHtml,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
-    <Wrapper py px>
+    <Wrapper>
       <h1>{post.title}</h1>
       <Wysiwyg>
         <div dangerouslySetInnerHTML={{ __html: bodyHtml }}></div>
