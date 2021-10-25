@@ -10,6 +10,14 @@
   line-height: 2rem;
 }
 
+.outer img {
+  width: 100%;
+}
+
+.outer pre {
+  overflow-x: auto;
+}
+
 .outer :not([hidden]) + p {
   margin-top: 1.5rem;
 }
