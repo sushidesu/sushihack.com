@@ -2,5 +2,5 @@
   background-color: var(--color-white);
   border-radius: .375rem;
   padding: .5rem 1rem;
-  box-shadow: 0 3px 20px rgba(255, 218, 80, 0.6);
+  box-shadow: 1px 3px 24px -4px var(--color-sushi-light);
 }

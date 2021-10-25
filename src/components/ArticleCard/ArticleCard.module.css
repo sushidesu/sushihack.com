@@ -10,7 +10,7 @@
 }
 
 .thumbnail_dummy {
-  background-color: var(--color-primary);
+  background-color: var(--color-sushi);
   width: 5rem;
   height: 5rem;
   border-radius: .375rem;
