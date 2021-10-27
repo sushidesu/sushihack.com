@@ -1,12 +1,12 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import markdown from "markdown-it"
 import { getHighlighter } from "shiki"
-import { graphQLClient, gql } from "plugins/graphql"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
 import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
 import { BlogPostRepository } from "infra/blog-post-repository"
+import { PostData } from "components/interface/post-data"
 
 const PostPage = ({
   post,
@@ -36,21 +36,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps<{
-  post: Post
+  post: PostData
   bodyHtml: string
 }> = async ({ params }) => {
-  const query = gql`
-    query PostPageQuery($slug: String!) {
-      post(where: { slug: $slug }) {
-        id
-        title
-        body
-      }
-    }
-  `
-  const { post } = await graphQLClient.request<{ post: Post }>(query, {
-    slug: params?.slug,
-  })
+  const postRepository = new BlogPostRepository()
+  const slug = typeof params?.slug === "string" ? params.slug : ""
+  const post = await postRepository.getPost(slug)
 
   const highlighter = await getHighlighter({ theme: "material-theme-lighter" })
   const md = markdown({

@@ -49,6 +49,28 @@ export class BlogPostRepository implements IBlogPostRepository {
     return posts.map((post) => this.convertSmallPost(post))
   }
 
+  async getPost(slug: string): Promise<PostData> {
+    const query = gql`
+      query PostPageQuery($slug: String!) {
+        post(where: { slug: $slug }) {
+          id
+          slug
+          title
+          body
+          tags {
+            id
+            label
+            slug
+          }
+        }
+      }
+    `
+    const { post } = await this.gqlClient.request<{ post: PostModel }>(query, {
+      slug: slug,
+    })
+    return this.convertPost(post)
+  }
+
   async getAllTags() {
     return []
   }
