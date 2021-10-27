@@ -6,3 +6,10 @@ if (!process.env.GRAPHCMS_ENDPOINT) {
 }
 
 export const graphQLClient = new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
+
+export const createGraphQLClient = () => {
+  if (!process.env.GRAPHCMS_ENDPOINT) {
+    throw new Error("GRAPHCMS_ENDPOINT is not defined")
+  }
+  new GraphQLClient(process.env.GRAPHCMS_ENDPOINT)
+}
