@@ -7,3 +7,6 @@ export interface PostData {
   body: string
   tags: TagData[]
 }
+
+export interface PostDataSmall
+  extends Pick<PostData, "id" | "slug" | "title"> {}
