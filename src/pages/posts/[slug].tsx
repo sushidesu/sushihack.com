@@ -7,6 +7,7 @@ import { Wrapper } from "components/Wrapper/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
 import { BlogPostRepository } from "infra/blog-post-repository"
 import { PostData } from "components/interface/post-data"
+import { getSlug } from "../../utils/getSlug"
 
 const PostPage = ({
   post,
@@ -40,7 +41,7 @@ export const getStaticProps: GetStaticProps<{
   bodyHtml: string
 }> = async ({ params }) => {
   const postRepository = new BlogPostRepository()
-  const slug = typeof params?.slug === "string" ? params.slug : ""
+  const slug = getSlug(params)
   const post = await postRepository.getPost(slug)
 
   const highlighter = await getHighlighter({ theme: "material-theme-lighter" })

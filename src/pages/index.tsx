@@ -1,12 +1,12 @@
 import React from "react"
 import { InferGetStaticPropsType, GetStaticProps } from "next"
 import Head from "next/head"
-import { PostData } from "../components/interface/post-data"
-import { BlogPostRepository } from "../infra/blog-post-repository"
 import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
 import { ArticleCard } from "components/ArticleCard/ArticleCard"
 import { ArticleCardWrapper } from "components/ArticleCard/ArticleCardWrapper"
+import { PostData } from "../components/interface/post-data"
+import { BlogPostRepository } from "../infra/blog-post-repository"
 
 export const getStaticProps: GetStaticProps<{
   posts: PostData[]

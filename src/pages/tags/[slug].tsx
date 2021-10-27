@@ -2,6 +2,7 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import { Layout } from "components/Layout/Layout"
 import { TagDataWithPosts } from "components/interface/tag-data"
 import { BlogPostRepository } from "../../infra/blog-post-repository"
+import { getSlug } from "../../utils/getSlug"
 
 const TagPage = ({ tag }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
@@ -30,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<{
   tag: TagDataWithPosts
 }> = async ({ params }) => {
-  const slug = typeof params?.slug === "string" ? params.slug : ""
+  const slug = getSlug(params)
   const postRepository = new BlogPostRepository()
   const tag = await postRepository.getTagWithPosts(slug)
 
