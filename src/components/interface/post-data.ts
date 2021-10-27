@@ -1,6 +1,7 @@
 import { TagData } from "./tag-data"
 
 interface PostDataProps {
+  id: string
   slug: string
   title: string
   body: string
