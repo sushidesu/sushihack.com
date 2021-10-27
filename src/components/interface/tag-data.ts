@@ -1,9 +1,5 @@
-interface TagDataProps {
+export interface TagData {
   id: string
   slug: string
   label: string
-}
-
-export class TagData {
-  constructor(public readonly props: TagDataProps) {}
 }

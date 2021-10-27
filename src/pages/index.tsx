@@ -11,21 +11,6 @@ import { ArticleCardWrapper } from "components/ArticleCard/ArticleCardWrapper"
 export const getStaticProps: GetStaticProps<{
   posts: PostData[]
 }> = async () => {
-  // const query = gql`
-  //   {
-  //     posts {
-  //       id
-  //       slug
-  //       title
-  //       tags {
-  //         id
-  //         label
-  //         slug
-  //       }
-  //     }
-  //   }
-  // `
-  // const { posts } = await graphQLClient.request<{ posts: Post[] }>(query)
   const postRepository = new BlogPostRepository()
   const posts = await postRepository.getAllPosts()
 
@@ -47,12 +32,12 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Wrapper>
         <section>
           <ArticleCardWrapper>
-            {posts.map(({ props: { id, title, slug, tags } }) => (
+            {posts.map(({ id, title, slug, tags }) => (
               <ArticleCard
                 key={id}
                 title={title}
                 path={`/posts/${slug}`}
-                tags={tags.map(({ props: { id, label, slug } }) => ({
+                tags={tags.map(({ id, label, slug }) => ({
                   id,
                   name: label,
                   path: `/tags/${slug}`,
