@@ -6,6 +6,7 @@ import { isSupportedLanguage } from "utils/isSupportedLanguage"
 import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
+import { BlogPostRepository } from "infra/blog-post-repository"
 
 const PostPage = ({
   post,
@@ -22,16 +23,8 @@ const PostPage = ({
 )
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const query = gql`
-    {
-      posts {
-        id
-        slug
-        title
-      }
-    }
-  `
-  const { posts } = await graphQLClient.request<{ posts: Post[] }>(query)
+  const postRepository = new BlogPostRepository()
+  const posts = await postRepository.getAllPostsSmall()
   return {
     paths: posts.map((post) => ({
       params: {
