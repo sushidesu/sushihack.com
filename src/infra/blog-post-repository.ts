@@ -3,7 +3,7 @@ import { createGraphQLClient } from "../plugins/graphql"
 import { IBlogPostRepository } from "../components/interface/blog-post-repository-interface"
 import { PostModel, TagModel } from "./scheme"
 import { PostData, PostDataSmall } from "components/interface/post-data"
-import { TagData } from "components/interface/tag-data"
+import { TagData, TagDataWithPosts } from "components/interface/tag-data"
 
 export class BlogPostRepository implements IBlogPostRepository {
   private gqlClient: GraphQLClient
@@ -71,8 +71,39 @@ export class BlogPostRepository implements IBlogPostRepository {
     return this.convertPost(post)
   }
 
-  async getAllTags() {
-    return []
+  async getAllTags(): Promise<TagData[]> {
+    const query = gql`
+      {
+        tags {
+          id
+          slug
+          label
+        }
+      }
+    `
+    const { tags } = await this.gqlClient.request<{ tags: TagModel[] }>(query)
+    return tags.map((tag) => this.convertTag(tag))
+  }
+
+  async getTagWithPosts(slug: string): Promise<TagDataWithPosts> {
+    const query = gql`
+      query TagPageQuery($slug: String!) {
+        tag(where: { slug: $slug }) {
+          id
+          label
+          slug
+          posts {
+            id
+            title
+            slug
+          }
+        }
+      }
+    `
+    const { tag } = await this.gqlClient.request<{ tag: TagModel }>(query, {
+      slug: slug,
+    })
+    return this.convertTagWithPosts(tag)
   }
 
   private convertPost(model: PostModel): PostData {
@@ -99,6 +130,14 @@ export class BlogPostRepository implements IBlogPostRepository {
       id: model.id,
       slug: model.slug,
       label: model.label,
+    }
+  }
+  private convertTagWithPosts(model: TagModel): TagDataWithPosts {
+    return {
+      id: model.id,
+      slug: model.slug,
+      label: model.label,
+      posts: model.posts.map((post) => this.convertSmallPost(post)),
     }
   }
 }
