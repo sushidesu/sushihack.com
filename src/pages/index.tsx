@@ -1,28 +1,18 @@
 import React from "react"
 import { InferGetStaticPropsType, GetStaticProps } from "next"
 import Head from "next/head"
-import { graphQLClient, gql } from "plugins/graphql"
 import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
 import { ArticleCard } from "components/ArticleCard/ArticleCard"
 import { ArticleCardWrapper } from "components/ArticleCard/ArticleCardWrapper"
+import { PostData } from "../components/interface/post-data"
+import { BlogPostRepository } from "../infra/blog-post-repository"
 
-export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
-  const query = gql`
-    {
-      posts {
-        id
-        slug
-        title
-        tags {
-          id
-          label
-          slug
-        }
-      }
-    }
-  `
-  const { posts } = await graphQLClient.request<{ posts: Post[] }>(query)
+export const getStaticProps: GetStaticProps<{
+  posts: PostData[]
+}> = async () => {
+  const postRepository = new BlogPostRepository()
+  const posts = await postRepository.getAllPosts()
 
   return {
     props: {
@@ -42,15 +32,15 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Wrapper>
         <section>
           <ArticleCardWrapper>
-            {posts.map((post) => (
+            {posts.map(({ id, title, slug, tags }) => (
               <ArticleCard
-                key={post.id}
-                title={post.title}
-                path={`/posts/${post.slug}`}
-                tags={post.tags.map((tag) => ({
-                  id: tag.id,
-                  name: tag.label,
-                  path: `/tags/${tag.slug}`,
+                key={id}
+                title={title}
+                path={`/posts/${slug}`}
+                tags={tags.map(({ id, label, slug }) => ({
+                  id,
+                  name: label,
+                  path: `/tags/${slug}`,
                 }))}
               />
             ))}

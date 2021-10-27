@@ -1,6 +1,8 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
-import { graphQLClient, gql } from "plugins/graphql"
 import { Layout } from "components/Layout/Layout"
+import { TagDataWithPosts } from "components/interface/tag-data"
+import { BlogPostRepository } from "../../infra/blog-post-repository"
+import { getSlug } from "../../utils/getSlug"
 
 const TagPage = ({ tag }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
@@ -14,16 +16,8 @@ const TagPage = ({ tag }: InferGetStaticPropsType<typeof getStaticProps>) => (
 )
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const query = gql`
-    {
-      tags {
-        id
-        slug
-      }
-    }
-  `
-
-  const { tags } = await graphQLClient.request<{ tags: Tag[] }>(query)
+  const postRepository = new BlogPostRepository()
+  const tags = await postRepository.getAllTags()
   return {
     paths: tags.map((tag) => ({
       params: {
@@ -35,26 +29,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps<{
-  tag: Tag
+  tag: TagDataWithPosts
 }> = async ({ params }) => {
-  const query = gql`
-    query TagPageQuery($slug: String!) {
-      tag(where: { slug: $slug }) {
-        id
-        label
-        slug
-        posts {
-          id
-          title
-          slug
-        }
-      }
-    }
-  `
-
-  const { tag } = await graphQLClient.request<{ tag: Tag }>(query, {
-    slug: params?.slug,
-  })
+  const slug = getSlug(params)
+  const postRepository = new BlogPostRepository()
+  const tag = await postRepository.getTagWithPosts(slug)
 
   return {
     props: {
