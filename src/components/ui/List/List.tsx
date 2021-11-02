@@ -1,10 +1,10 @@
-import styles from "./PostItemWrapper.module.css"
+import styles from "./List.module.css"
 
-type PostItemWrapperProps = {
+type ListProps = {
   items: JSX.Element[]
 }
 
-export function PostItemWrapper({ items }: PostItemWrapperProps): JSX.Element {
+export function List({ items }: ListProps): JSX.Element {
   return (
     <ul>
       {items.map((item, index) => (
