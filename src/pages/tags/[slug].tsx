@@ -1,6 +1,7 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import { Layout } from "components/Layout/Layout"
 import { TagDataWithPosts } from "components/interface/tag-data"
+import { PostItemWrapper } from "components/page/tags/PostItemWrapper/PostItemWrapper"
 import { PostItem } from "components/page/tags/PostItem/PostItem"
 import { BlogPostRepository } from "../../infra/blog-post-repository"
 import { getSlug } from "../../utils/getSlug"
@@ -8,13 +9,11 @@ import { getSlug } from "../../utils/getSlug"
 const TagPage = ({ tag }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
     <h1>{tag.label}</h1>
-    <ul>
-      {tag.posts.map((post) => (
-        <li key={post.id}>
-          <PostItem title={post.title} path={`/posts/${post.slug}`} />
-        </li>
+    <PostItemWrapper
+      items={tag.posts.map((post) => (
+        <PostItem title={post.title} path={`/posts/${post.slug}`} />
       ))}
-    </ul>
+    />
   </Layout>
 )
 
