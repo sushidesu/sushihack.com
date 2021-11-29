@@ -7,6 +7,16 @@ module.exports = (_, { defaultConfig }) => {
    * @type {import('next').NextConfig}
    */
   const nextConfig = withMDX({
+    webpack: (config) => {
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ["@svgr/webpack"],
+      })
+      return config
+    },
+    images: {
+      disableStaticImages: true,
+    },
     pageExtensions: [...defaultConfig.pageExtensions, "mdx"],
   })
   return nextConfig

@@ -27,6 +27,7 @@
     "shiki": "^0.2.6"
   },
   "devDependencies": {
+    "@svgr/webpack": "^5.5.0",
     "@types/markdown-it": "^10.0.2",
     "@types/marked": "^3.0.2",
     "@types/node": "^16.11.6",
