@@ -10,6 +10,7 @@
 }
 
 .logo {
+  margin-left: 4px;
   color: var(--color-white);
   font-size: 1.5rem;
   line-height: 2rem;

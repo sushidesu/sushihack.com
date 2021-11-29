@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Container } from "../Container/Container"
+import Logo from "./salmon_with_text.svg"
 import styles from "./Header.module.css"
 
 export const Header = (): JSX.Element => (
@@ -8,7 +9,9 @@ export const Header = (): JSX.Element => (
       <div className={styles.inner}>
         <p>
           <Link passHref href="/">
-            <a className={styles.logo}>sushihack</a>
+            <a className={styles.logo}>
+              <Logo height={"40px"} />
+            </a>
           </Link>
         </p>
         <p>
