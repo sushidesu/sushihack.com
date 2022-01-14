@@ -24,3 +24,13 @@
   justify-content: center;
   gap: 18px;
 }
+
+@media screen and (min-width: 800px) {
+  .post-headers {
+    gap: 38px;
+  }
+
+  .post-meta-list {
+    gap: 32px;
+  }
+}
