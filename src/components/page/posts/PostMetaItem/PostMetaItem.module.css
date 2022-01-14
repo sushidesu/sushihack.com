@@ -1,5 +1,11 @@
 .post-meta-item {
   display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.post-meta-item-body {
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -12,4 +18,9 @@
 
 .post-meta-item-content {
   color: var(--color-base);
+}
+
+.post-meta-item-icon > * {
+  display: block;
+  margin: auto;
 }

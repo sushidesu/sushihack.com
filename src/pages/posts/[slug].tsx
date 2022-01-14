@@ -7,6 +7,7 @@ import { Wrapper } from "components/Wrapper/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
 import { ThumbnailDummy } from "components/page/posts/ThumbnailDummy"
 import { PostMetaItem } from "components/page/posts/PostMetaItem"
+import { Avatar } from "components/page/posts/Avatar"
 import { BlogPostRepository } from "infra/blog-post-repository"
 import { PostData } from "components/interface/post-data"
 import { getSlug } from "../../utils/getSlug"
@@ -23,9 +24,17 @@ const PostPage = ({
         <h1 className={styles["post-title"]}>{post.title}</h1>
       </div>
       <div className={styles["post-meta-list"]}>
-        <PostMetaItem title="Written By" content="sushidesu" />
+        <PostMetaItem
+          icon={
+            <Avatar
+              size="40px"
+              src="https://avatars.githubusercontent.com/u/45958851?s=96&v=4"
+            />
+          }
+          title="Written By"
+          content="sushidesu"
+        />
         <PostMetaItem title="Published At" content="2021/01/01" />
-        <PostMetaItem title="Happiness" content="😊 8/10" />
       </div>
     </div>
     <Wrapper>
