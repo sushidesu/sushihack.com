@@ -34,7 +34,7 @@ const PostPage = ({
           title="Written By"
           content="sushidesu"
         />
-        <PostMetaItem title="Published At" content="2021/01/01" />
+        <PostMetaItem title="Published At" content={post.publishedAt} />
       </div>
     </div>
     <Wrapper>

@@ -5,6 +5,7 @@ export interface PostData {
   slug: string
   title: string
   body: string
+  publishedAt: string
   tags: TagData[]
 }
 

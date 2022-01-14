@@ -54,6 +54,7 @@ export class BlogPostRepository implements IBlogPostRepository {
       query PostPageQuery($slug: String!) {
         post(where: { slug: $slug }) {
           id
+          publishedAt
           slug
           title
           body
@@ -109,6 +110,7 @@ export class BlogPostRepository implements IBlogPostRepository {
   private convertPost(model: PostModel): PostData {
     return {
       id: model.id,
+      publishedAt: model.publishedAt,
       slug: model.slug,
       title: model.title,
       body: model.body,
