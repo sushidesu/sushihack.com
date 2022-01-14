@@ -12,6 +12,10 @@
   --color-link: rgba(30, 64, 175, 1);
   --color-gray-dark: rgba(71, 85, 105, 1);
   --color-space-gray: #4D6A96;
+
+  --font-size-xl: 1.8rem;
+  --font-size-lg: 1.1rem;
+  --font-size-sm: .8rem;
 }
 
 html {
@@ -29,6 +33,7 @@ body {
   word-wrap: break-word;
   font-family: "Inter", "BlinkMacSystemFont",
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-size: 16px;
 }
 
 *, :after, :before {

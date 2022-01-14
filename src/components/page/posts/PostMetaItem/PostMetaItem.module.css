@@ -6,6 +6,7 @@
 
 .post-meta-item-title {
   color: var(--color-space-gray);
+  font-size: var(--font-size-sm);
   font-weight: bold;
 }
 
