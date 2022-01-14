@@ -1,0 +1,6 @@
+.dummy {
+  width: 100px;
+  height: 100px;
+  background-color: var(--color-earth);
+  border-radius: 8px;
+}

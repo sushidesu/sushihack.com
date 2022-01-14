@@ -1,0 +1,14 @@
+.post-meta-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.post-meta-item-title {
+  color: var(--color-space-gray);
+  font-weight: bold;
+}
+
+.post-meta-item-content {
+  color: var(--color-base);
+}
