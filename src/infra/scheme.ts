@@ -8,6 +8,12 @@ export interface PostModel extends GraphCMSModel {
   title: string
   body: string
   tags: TagModel[]
+  thumbnail_webp: {
+    url: string
+  } | null
+  thumbnail_png: {
+    url: string
+  } | null
 }
 
 export interface TagModel extends GraphCMSModel {

@@ -25,6 +25,22 @@ export class BlogPostRepository implements IBlogPostRepository {
             label
             slug
           }
+          thumbnail_webp: thumbnail {
+            url(
+              transformation: {
+                image: { resize: { fit: scale, height: 100, width: 100 } }
+                document: { output: { format: webp } }
+              }
+            )
+          }
+          thumbnail_png: thumbnail {
+            url(
+              transformation: {
+                image: { resize: { fit: scale, height: 100, width: 100 } }
+                document: { output: { format: png } }
+              }
+            )
+          }
         }
       }
     `
@@ -63,6 +79,22 @@ export class BlogPostRepository implements IBlogPostRepository {
             id
             label
             slug
+          }
+          thumbnail_webp: thumbnail {
+            url(
+              transformation: {
+                image: { resize: { fit: scale, height: 100, width: 100 } }
+                document: { output: { format: webp } }
+              }
+            )
+          }
+          thumbnail_png: thumbnail {
+            url(
+              transformation: {
+                image: { resize: { fit: scale, height: 100, width: 100 } }
+                document: { output: { format: png } }
+              }
+            )
           }
         }
       }
@@ -116,6 +148,8 @@ export class BlogPostRepository implements IBlogPostRepository {
       title: model.title,
       body: model.body,
       tags: model.tags.map((tag) => this.convertTag(tag)),
+      thumbnail_png: model.thumbnail_png?.url ?? null,
+      thumbnail_webp: model.thumbnail_webp?.url ?? null,
     }
   }
   private convertSmallPost(
