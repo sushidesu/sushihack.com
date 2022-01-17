@@ -25,7 +25,7 @@ export function ArticleCard({
 }: Props): JSX.Element {
   return (
     <div className={styles.outer}>
-      <Thumbnail webp={thumbnailWebp} png={thumbnailPng} />
+      <Thumbnail size="sm" webp={thumbnailWebp} png={thumbnailPng} />
       <div className={styles.inner}>
         <p className={styles.title}>
           <Link href={path} passHref>

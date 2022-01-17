@@ -5,7 +5,7 @@ import { isSupportedLanguage } from "utils/isSupportedLanguage"
 import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
-import { ThumbnailDummy } from "components/page/posts/ThumbnailDummy"
+import { Thumbnail } from "components/page/posts/Thumbnail"
 import { PostMetaItem } from "components/page/posts/PostMetaItem"
 import { Avatar } from "components/page/posts/Avatar"
 import { BlogPostRepository } from "infra/blog-post-repository"
@@ -20,7 +20,10 @@ const PostPage = ({
   <Layout>
     <div className={styles["post-header-wrapper"]}>
       <div className={styles["post-headers"]}>
-        <ThumbnailDummy />
+        <Thumbnail
+          webp={post.thumbnail_webp ?? undefined}
+          png={post.thumbnail_png ?? undefined}
+        />
         <h1 className={styles["post-title"]}>{post.title}</h1>
       </div>
       <div className={styles["post-meta-list"]}>
