@@ -16,6 +16,7 @@ export class BlogPostRepository implements IBlogPostRepository {
       {
         posts {
           id
+          publishedAt
           slug
           title
           body
