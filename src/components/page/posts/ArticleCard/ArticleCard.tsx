@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { Thumbnail } from "components/page/posts/Thumbnail"
 import styles from "./ArticleCard.module.css"
 
 export type Props = {
@@ -24,14 +25,7 @@ export function ArticleCard({
 }: Props): JSX.Element {
   return (
     <div className={styles.outer}>
-      {thumbnailPng ? (
-        <picture>
-          <source srcSet={thumbnailWebp} type="image/webp" />
-          <img src={thumbnailPng} />
-        </picture>
-      ) : (
-        <div className={styles.thumbnail_dummy}></div>
-      )}
+      <Thumbnail webp={thumbnailWebp} png={thumbnailPng} />
       <div className={styles.inner}>
         <p className={styles.title}>
           <Link href={path} passHref>

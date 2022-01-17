@@ -1,0 +1,16 @@
+.wrapper {
+  width: 80px;
+  height: 80px;
+}
+
+.wrapper > img, .wrapper > source {
+  width: 100%;
+  object-fit: cover;
+}
+
+.dummy {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-earth);
+}
