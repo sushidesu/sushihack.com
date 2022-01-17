@@ -4,7 +4,8 @@ import styles from "./ArticleCard.module.css"
 export type Props = {
   title: string
   path: string
-  thumbnailPath?: string
+  thumbnailWebp?: string | undefined
+  thumbnailPng?: string | undefined
   tags: TagProp[]
 }
 
@@ -17,13 +18,17 @@ export type TagProp = {
 export function ArticleCard({
   title,
   path,
-  thumbnailPath,
+  thumbnailWebp,
+  thumbnailPng,
   tags,
 }: Props): JSX.Element {
   return (
     <div className={styles.outer}>
-      {thumbnailPath ? (
-        <img src={thumbnailPath} />
+      {thumbnailPng ? (
+        <picture>
+          <source srcSet={thumbnailWebp} type="image/webp" />
+          <img src={thumbnailPng} />
+        </picture>
       ) : (
         <div className={styles.thumbnail_dummy}></div>
       )}
