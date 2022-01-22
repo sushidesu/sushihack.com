@@ -1,10 +1,8 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  --space-y-md: 16px;
-  --spacy-x-sm: 6px;
-  padding: var(--space-y-md) var(--spacy-x-sm);
+  gap: 8px;
+  padding: var(--space-y-md) var(--space-x-sm);
 }
 
 .post-headers {
