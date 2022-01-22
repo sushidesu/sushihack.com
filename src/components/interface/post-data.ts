@@ -5,7 +5,10 @@ export interface PostData {
   slug: string
   title: string
   body: string
+  publishedAt: string
   tags: TagData[]
+  thumbnail_webp: string | null
+  thumbnail_png: string | null
 }
 
 export interface PostDataSmall

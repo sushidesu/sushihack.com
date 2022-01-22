@@ -1,9 +1,27 @@
+.outer {
+  padding-bottom: 1rem;
+}
+
+.outer *:first-child {
+  margin-top: 1rem;
+}
+
+.outer h1 {
+  margin-top: 4rem;
+  margin-bottom: .5rem;
+}
+
 .outer h2 {
-  margin-top: 3rem;
+  margin-top: 4rem;
   margin-bottom: 1rem;
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 2rem;
+}
+
+.outer h3 {
+  margin-top: 3rem;
+  margin-bottom: .5rem;
 }
 
 .outer p {
@@ -18,7 +36,7 @@
   overflow-x: auto;
 }
 
-.outer :not([hidden]) + p {
+.outer p + p {
   margin-top: 1.5rem;
 }
 

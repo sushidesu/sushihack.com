@@ -32,18 +32,22 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       <Wrapper>
         <section>
           <ArticleCardWrapper>
-            {posts.map(({ id, title, slug, tags }) => (
-              <ArticleCard
-                key={id}
-                title={title}
-                path={`/posts/${slug}`}
-                tags={tags.map(({ id, label, slug }) => ({
-                  id,
-                  name: label,
-                  path: `/tags/${slug}`,
-                }))}
-              />
-            ))}
+            {posts.map(
+              ({ id, title, thumbnail_png, thumbnail_webp, slug, tags }) => (
+                <ArticleCard
+                  key={id}
+                  title={title}
+                  path={`/posts/${slug}`}
+                  thumbnailPng={thumbnail_png ?? undefined}
+                  thumbnailWebp={thumbnail_webp ?? undefined}
+                  tags={tags.map(({ id, label, slug }) => ({
+                    id,
+                    name: label,
+                    path: `/tags/${slug}`,
+                  }))}
+                />
+              )
+            )}
           </ArticleCardWrapper>
         </section>
       </Wrapper>

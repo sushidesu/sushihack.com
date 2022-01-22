@@ -8,14 +8,24 @@ import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
 import { BlogPostRepository } from "infra/blog-post-repository"
 import { PostData } from "components/interface/post-data"
 import { getSlug } from "../../utils/getSlug"
+import { PostHeader } from "components/page/posts/PostHeader"
+import styles from "./[slug].module.css"
 
 const PostPage = ({
   post,
   bodyHtml,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
+    <PostHeader
+      title={post.title}
+      avatar="https://avatars.githubusercontent.com/u/45958851?s=96&v=4"
+      publishedAt={post.publishedAt}
+      thumbnail={{
+        webp: post.thumbnail_webp ?? undefined,
+        png: post.thumbnail_png ?? undefined,
+      }}
+    />
     <Wrapper>
-      <h1>{post.title}</h1>
       <Wysiwyg>
         <div dangerouslySetInnerHTML={{ __html: bodyHtml }}></div>
       </Wysiwyg>
