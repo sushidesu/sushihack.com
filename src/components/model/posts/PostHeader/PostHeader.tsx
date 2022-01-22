@@ -1,6 +1,6 @@
-import { Avatar } from "components/page/posts/Avatar"
-import { PostMetaItem } from "components/page/posts/PostMetaItem"
-import { Thumbnail } from "components/page/posts/Thumbnail"
+import { Avatar } from "components/model/posts/Avatar"
+import { PostMetaItem } from "components/model/posts/PostMetaItem"
+import { Thumbnail } from "components/model/posts/Thumbnail"
 import styles from "./PostHeader.module.css"
 
 type PostHeaderProps = {

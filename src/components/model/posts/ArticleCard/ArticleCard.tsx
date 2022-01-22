@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Thumbnail } from "components/page/posts/Thumbnail"
+import { Thumbnail } from "components/model/posts/Thumbnail"
 import styles from "./ArticleCard.module.css"
 
 export type Props = {

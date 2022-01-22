@@ -8,7 +8,7 @@ import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
 import { BlogPostRepository } from "infra/blog-post-repository"
 import { PostData } from "components/interface/post-data"
 import { getSlug } from "utils/getSlug"
-import { PostHeader } from "components/page/posts/PostHeader"
+import { PostHeader } from "components/model/posts/PostHeader"
 import { SeoHeaders } from "components/ui/SeoHeaders"
 import styles from "./[slug].module.css"
 
