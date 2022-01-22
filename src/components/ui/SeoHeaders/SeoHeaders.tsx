@@ -5,13 +5,16 @@ type SeoHeadersProps = {
   title?: string
   description?: string
   path: string
-  ogImagePath?: string
+  ogImagePath?: string | ((root: string) => string)
   ogType?: "summary_large_image" | "summary"
   useTitleTemplate?: boolean
 }
 
 export const SeoHeaders = (props: SeoHeadersProps): JSX.Element => {
   const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL
+  if (APP_ROOT_URL === undefined) {
+    throw new Error("NEXT_PUBLIC_APP_ROOT_URL is not defined")
+  }
 
   const {
     title = "sushihack",
@@ -23,7 +26,15 @@ export const SeoHeaders = (props: SeoHeadersProps): JSX.Element => {
   } = props
 
   const pageUrl = APP_ROOT_URL + path
-  const ogImageUrl = ogImagePath ?? APP_ROOT_URL + "/ogp.png"
+
+  let ogImageUrl: string
+  if (typeof ogImagePath === "string") {
+    ogImageUrl = ogImagePath
+  } else if (typeof ogImagePath === "function") {
+    ogImageUrl = ogImagePath(APP_ROOT_URL)
+  } else {
+    ogImageUrl = APP_ROOT_URL + "/ogp.png"
+  }
 
   return (
     <>

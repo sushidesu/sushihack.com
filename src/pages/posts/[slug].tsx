@@ -7,10 +7,12 @@ import { Wrapper } from "components/Wrapper/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
 import { BlogPostRepository } from "infra/blog-post-repository"
 import { PostData } from "components/interface/post-data"
-import { getSlug } from "../../utils/getSlug"
+import { getSlug } from "utils/getSlug"
 import { PostHeader } from "components/page/posts/PostHeader"
-import styles from "./[slug].module.css"
 import { SeoHeaders } from "components/ui/SeoHeaders"
+import styles from "./[slug].module.css"
+
+const genDefaultOgpPath = (root: string) => `${root}/square_salmon.png`
 
 const PostPage = ({
   post,
@@ -20,6 +22,7 @@ const PostPage = ({
     <SeoHeaders
       title={post.title}
       path={`/posts/${post.slug}`}
+      ogImagePath={post.thumbnail_ogp ?? genDefaultOgpPath}
       useTitleTemplate
     />
     <PostHeader

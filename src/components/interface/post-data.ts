@@ -9,6 +9,7 @@ export interface PostData {
   tags: TagData[]
   thumbnail_webp: string | null
   thumbnail_png: string | null
+  thumbnail_ogp: string | null
 }
 
 export interface PostDataSmall
