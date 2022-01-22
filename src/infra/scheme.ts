@@ -14,6 +14,9 @@ export interface PostModel extends GraphCMSModel {
   thumbnail_png: {
     url: string
   } | null
+  thumbnail_ogp: {
+    url: string
+  } | null
 }
 
 export interface TagModel extends GraphCMSModel {

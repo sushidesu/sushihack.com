@@ -1,3 +1,4 @@
+import { SeoHeaders } from "components/ui/SeoHeaders"
 import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
@@ -8,6 +9,11 @@ My name is [sushidesu](https://sushidesu.com).
 
 export default ({ children }) => (
   <Layout>
+    <SeoHeaders
+      title="About"
+      path={`/about`}
+      useTitleTemplate
+    />
     <Wrapper py px>
       <Wysiwyg>{ children }</Wysiwyg>
     </Wrapper>

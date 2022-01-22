@@ -41,6 +41,14 @@ export class BlogPostRepository implements IBlogPostRepository {
               }
             )
           }
+          thumbnail_ogp: thumbnail {
+            url(
+              transformation: {
+                image: { resize: { fit: scale, height: 800, width: 800 } }
+                document: { output: { format: png } }
+              }
+            )
+          }
         }
       }
     `
@@ -92,6 +100,14 @@ export class BlogPostRepository implements IBlogPostRepository {
             url(
               transformation: {
                 image: { resize: { fit: scale, height: 100, width: 100 } }
+                document: { output: { format: png } }
+              }
+            )
+          }
+          thumbnail_ogp: thumbnail {
+            url(
+              transformation: {
+                image: { resize: { fit: scale, height: 800, width: 800 } }
                 document: { output: { format: png } }
               }
             )
@@ -150,6 +166,7 @@ export class BlogPostRepository implements IBlogPostRepository {
       tags: model.tags.map((tag) => this.convertTag(tag)),
       thumbnail_png: model.thumbnail_png?.url ?? null,
       thumbnail_webp: model.thumbnail_webp?.url ?? null,
+      thumbnail_ogp: model.thumbnail_ogp?.url ?? null,
     }
   }
   private convertSmallPost(

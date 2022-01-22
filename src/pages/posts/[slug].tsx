@@ -7,15 +7,24 @@ import { Wrapper } from "components/Wrapper/Wrapper"
 import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
 import { BlogPostRepository } from "infra/blog-post-repository"
 import { PostData } from "components/interface/post-data"
-import { getSlug } from "../../utils/getSlug"
+import { getSlug } from "utils/getSlug"
 import { PostHeader } from "components/page/posts/PostHeader"
+import { SeoHeaders } from "components/ui/SeoHeaders"
 import styles from "./[slug].module.css"
+
+const genDefaultOgpPath = (root: string) => `${root}/square_salmon.png`
 
 const PostPage = ({
   post,
   bodyHtml,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
+    <SeoHeaders
+      title={post.title}
+      path={`/posts/${post.slug}`}
+      ogImagePath={post.thumbnail_ogp ?? genDefaultOgpPath}
+      useTitleTemplate
+    />
     <PostHeader
       title={post.title}
       avatar="https://avatars.githubusercontent.com/u/45958851?s=96&v=4"

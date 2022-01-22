@@ -6,9 +6,15 @@ import { Spacer } from "components/ui/Spacer/Spacer"
 import { PostItem } from "components/page/tags/PostItem/PostItem"
 import { BlogPostRepository } from "../../infra/blog-post-repository"
 import { getSlug } from "../../utils/getSlug"
+import { SeoHeaders } from "components/ui/SeoHeaders"
 
 const TagPage = ({ tag }: InferGetStaticPropsType<typeof getStaticProps>) => (
   <Layout>
+    <SeoHeaders
+      title={`Tag: ${tag.label}`}
+      path={`/tags/${tag.slug}`}
+      useTitleTemplate
+    />
     <h1>{tag.label}</h1>
     <Spacer size="1em" />
     <List

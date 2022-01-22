@@ -1,6 +1,6 @@
 import React from "react"
 import { InferGetStaticPropsType, GetStaticProps } from "next"
-import Head from "next/head"
+import { SeoHeaders } from "components/ui/SeoHeaders"
 import { Layout } from "components/Layout/Layout"
 import { Wrapper } from "components/Wrapper/Wrapper"
 import { ArticleCard } from "components/page/posts/ArticleCard/ArticleCard"
@@ -24,10 +24,7 @@ export const getStaticProps: GetStaticProps<{
 const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
-      <Head>
-        <title>sushihack</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SeoHeaders title="sushihack" path="/" />
 
       <Wrapper>
         <section>
