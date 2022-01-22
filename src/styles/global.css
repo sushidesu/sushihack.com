@@ -18,7 +18,10 @@
   --font-size-md: 1rem;
   --font-size-sm: .8rem;
 
+  --border-radius-sm: 3px;
   --border-radius-md: 6px;
+
+  --space-x-sm: 6px;
 }
 
 html {

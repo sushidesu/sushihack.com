@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Thumbnail } from "components/model/post/Thumbnail"
+import { Tag } from "components/model/tag/Tag"
 import styles from "./ArticleCard.module.css"
 
 export type Props = {
@@ -36,7 +37,7 @@ export function ArticleCard({
           {tags.map((tag) => (
             <Link key={tag.id} href={tag.path} passHref>
               <a>
-                <span className={styles.tag}>{tag.name}</span>
+                <Tag>{tag.name}</Tag>
               </a>
             </Link>
           ))}
