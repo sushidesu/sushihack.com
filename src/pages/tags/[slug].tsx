@@ -1,5 +1,5 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
-import { Layout } from "components/Layout/Layout"
+import { Layout } from "components/ui/Layout/Layout"
 import { TagDataWithPosts } from "components/interface/tag-data"
 import { List } from "components/ui/List/List"
 import { Spacer } from "components/ui/Spacer/Spacer"
