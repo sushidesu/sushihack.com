@@ -3,7 +3,8 @@
   flex-direction: column;
   gap: 18px;
   --space-y-md: 16px;
-  padding: var(--space-y-md) 0;
+  --spacy-x-sm: 6px;
+  padding: var(--space-y-md) var(--spacy-x-sm);
 }
 
 .post-headers {
@@ -14,8 +15,8 @@
 }
 
 .post-title {
-  font-size: var(--font-size-xl);
-  max-width: 200px;
+  font-size: var(--font-size-lg);
+  max-width: 60%;
 }
 
 .post-meta-list {
@@ -26,7 +27,10 @@
   gap: 18px;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 500px) {
+  .post-title {
+    font-size: var(--font-size-xl);
+  }
   .post-headers {
     gap: 38px;
   }
