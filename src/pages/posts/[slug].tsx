@@ -5,6 +5,7 @@ import { isSupportedLanguage } from "utils/isSupportedLanguage"
 import { Layout } from "components/ui/Layout/Layout"
 import { Wrapper } from "components/ui/Wrapper/Wrapper"
 import { Wysiwyg } from "components/ui/Wysiwyg/Wysiwyg"
+import { Spacer } from "components/ui/Spacer"
 import { BlogPostRepository } from "infra/blog-post-repository"
 import { PostData } from "components/interface/post-data"
 import { getSlug } from "utils/getSlug"
@@ -34,6 +35,7 @@ const PostPage = ({
         png: post.thumbnail_png ?? undefined,
       }}
     />
+    <Spacer size="md" />
     <Wrapper>
       <Wysiwyg>
         <div dangerouslySetInnerHTML={{ __html: bodyHtml }}></div>
