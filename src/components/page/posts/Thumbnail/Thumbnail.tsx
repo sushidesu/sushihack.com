@@ -1,3 +1,7 @@
+import {
+  defaultThumbnailPng,
+  defaultThumbnailWebp,
+} from "constants/default-thumbnail"
 import styles from "./Thumbnail.module.css"
 
 type ThumbnailProps = {
@@ -9,14 +13,10 @@ type ThumbnailProps = {
 export const Thumbnail = (props: ThumbnailProps) => {
   const { webp, png, size = "md" } = props
 
-  if (webp && png) {
-    return (
-      <picture className={styles["wrapper"] + " " + styles[size]}>
-        <source srcSet={webp} type="image/webp" />
-        <img src={png} />
-      </picture>
-    )
-  } else {
-    return <div className={styles["dummy"] + " " + styles[size]} />
-  }
+  return (
+    <picture className={styles["wrapper"] + " " + styles[size]}>
+      <source srcSet={webp ?? defaultThumbnailWebp} type="image/webp" />
+      <img src={png ?? defaultThumbnailPng} />
+    </picture>
+  )
 }
