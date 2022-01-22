@@ -30,10 +30,19 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         <section>
           <ArticleCardWrapper>
             {posts.map(
-              ({ id, title, thumbnail_png, thumbnail_webp, slug, tags }) => (
+              ({
+                id,
+                title,
+                publishedAt,
+                thumbnail_png,
+                thumbnail_webp,
+                slug,
+                tags,
+              }) => (
                 <ArticleCard
                   key={id}
                   title={title}
+                  publishedAt={publishedAt}
                   path={`/posts/${slug}`}
                   thumbnailPng={thumbnail_png ?? undefined}
                   thumbnailWebp={thumbnail_webp ?? undefined}
