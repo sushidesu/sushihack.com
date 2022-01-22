@@ -1,4 +1,4 @@
-import { parseISO, format } from "date-fns"
+import { formatDate } from "utils/format-date"
 import styles from "./PostMetaItem.module.css"
 
 type PostMetaItemProps = {
@@ -20,9 +20,7 @@ export const PostMetaItem = (props: PostMetaItemProps) => {
         {content ? (
           <p className={styles["post-meta-item-content"]}>{content}</p>
         ) : null}
-        {time ? (
-          <time dateTime={time}>{format(parseISO(time), "yyyy/MM/dd")}</time>
-        ) : null}
+        {time ? <time dateTime={time}>{formatDate(time)}</time> : null}
       </div>
     </div>
   )
