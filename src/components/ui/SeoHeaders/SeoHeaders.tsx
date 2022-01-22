@@ -11,19 +11,19 @@ type SeoHeadersProps = {
 }
 
 export const SeoHeaders = (props: SeoHeadersProps): JSX.Element => {
+  const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL
+
   const {
     title = "sushihack",
     description,
     path,
-    ogImagePath = "/ogp.png",
+    ogImagePath,
     ogType = "summary_large_image",
     useTitleTemplate = false,
   } = props
 
-  const APP_ROOT_URL = process.env.NEXT_PUBLIC_APP_ROOT_URL
-
   const pageUrl = APP_ROOT_URL + path
-  const ogImageUrl = APP_ROOT_URL + ogImagePath
+  const ogImageUrl = ogImagePath ?? APP_ROOT_URL + "/ogp.png"
 
   return (
     <>
