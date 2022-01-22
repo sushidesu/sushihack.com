@@ -1,3 +1,7 @@
+.outer {
+  padding-bottom: 1rem;
+}
+
 .outer *:first-child {
   margin-top: 1rem;
 }
