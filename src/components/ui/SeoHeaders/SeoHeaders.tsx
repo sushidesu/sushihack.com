@@ -25,6 +25,8 @@ export const SeoHeaders = (props: SeoHeadersProps): JSX.Element => {
     useTitleTemplate = false,
   } = props
 
+  const pageTitle = useTitleTemplate ? `${title} - sushihack` : title
+
   const pageUrl = APP_ROOT_URL + path
 
   let ogImageUrl: string
@@ -61,11 +63,11 @@ export const SeoHeaders = (props: SeoHeadersProps): JSX.Element => {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <NexHeadSeo
-        title={useTitleTemplate ? `${title} - sushihack` : title}
+        title={pageTitle}
         canonical={pageUrl}
         description={description}
         og={{
-          title,
+          title: pageTitle,
           description,
           url: pageUrl,
           image: ogImageUrl,
