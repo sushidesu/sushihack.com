@@ -23,6 +23,7 @@ const PostPage = ({
       title={post.title}
       path={`/posts/${post.slug}`}
       ogImagePath={post.thumbnail_ogp ?? genDefaultOgpPath}
+      ogType="summary"
       useTitleTemplate
     />
     <PostHeader
