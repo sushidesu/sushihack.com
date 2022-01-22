@@ -16,7 +16,7 @@ const TagPage = ({ tag }: InferGetStaticPropsType<typeof getStaticProps>) => (
       useTitleTemplate
     />
     <h1>{tag.label}</h1>
-    <Spacer size="1em" />
+    <Spacer size="md" />
     <List
       items={tag.posts.map((post) => (
         <PostItem title={post.title} path={`/posts/${post.slug}`} />

@@ -1,0 +1,11 @@
+.sm {
+  height: var(--space-y-sm);
+}
+
+.md {
+  height: var(--space-y-md);
+}
+
+.lg {
+  height: var(--space-y-lg);
+}
