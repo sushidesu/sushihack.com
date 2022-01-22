@@ -10,7 +10,6 @@ import { PostData } from "components/interface/post-data"
 import { getSlug } from "utils/getSlug"
 import { PostHeader } from "components/model/post/PostHeader"
 import { SeoHeaders } from "components/ui/SeoHeaders"
-import styles from "./[slug].module.css"
 
 const genDefaultOgpPath = (root: string) => `${root}/square_salmon.png`
 
