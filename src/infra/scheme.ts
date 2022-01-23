@@ -5,6 +5,7 @@ interface GraphCMSModel {
 export interface PostModel extends GraphCMSModel {
   slug: string
   publishedAt: string
+  published: string
   title: string
   body: string
   tags: TagModel[]
