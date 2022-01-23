@@ -37,9 +37,7 @@ const PostPage = ({
     />
     <Spacer size="md" />
     <Wrapper>
-      <Wysiwyg>
-        <div dangerouslySetInnerHTML={{ __html: bodyHtml }}></div>
-      </Wysiwyg>
+      <Wysiwyg contentHTML={bodyHtml} />
     </Wrapper>
   </Layout>
 )
