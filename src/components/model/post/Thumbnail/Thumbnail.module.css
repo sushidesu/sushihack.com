@@ -5,6 +5,8 @@
 
 .wrapper > source,
 .wrapper > img {
+  width: inherit;
+  object-fit: cover;
   border-radius: var(--border-radius-md);
 }
 
@@ -16,11 +18,6 @@
 .md {
   width: 100px;
   height: 100px;
-}
-
-.wrapper > img, .wrapper > source {
-  width: 100%;
-  object-fit: cover;
 }
 
 .dummy {

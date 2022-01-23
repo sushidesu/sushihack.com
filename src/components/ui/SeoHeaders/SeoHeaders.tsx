@@ -58,7 +58,6 @@ export const SeoHeaders = (props: SeoHeadersProps): JSX.Element => {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="apple-touch-icon" href="apple-touch-icon.png" />
         <link rel="favicon" href="/favicon.ico" />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>

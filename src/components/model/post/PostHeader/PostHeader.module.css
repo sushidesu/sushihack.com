@@ -1,10 +1,8 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  --space-y-md: 16px;
-  --spacy-x-sm: 6px;
-  padding: var(--space-y-md) var(--spacy-x-sm);
+  gap: var(--space-y-sm);
+  padding: var(--space-y-md) var(--space-x-sm);
 }
 
 .post-headers {
@@ -23,8 +21,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 18px;
+  justify-content: flex-end;
 }
 
 @media screen and (min-width: 500px) {
@@ -33,9 +30,5 @@
   }
   .post-headers {
     gap: 38px;
-  }
-
-  .post-meta-list {
-    gap: 32px;
   }
 }

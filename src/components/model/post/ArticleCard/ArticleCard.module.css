@@ -3,18 +3,16 @@
   padding: 1em 0;
 }
 
+.thumbnail {
+  flex: 0 1 auto;
+}
+
 .inner {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 1.5rem;
-}
-
-.thumbnail_dummy {
-  background-color: var(--color-sushi);
-  width: 5rem;
-  height: 5rem;
-  border-radius: .375rem;
 }
 
 .title {
@@ -23,16 +21,26 @@
   line-height: 1.75rem;
   font-weight: 700;
 }
+
 .title:hover {
   color: var(--color-link);
 }
 
-.tags>:not([hidden])~:not([hidden]) {
-  margin-left: .75rem;
+/* --- */
+
+.details {
+  width: 100%;
+  margin-top: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.tag {
-  padding: .5rem 1rem;
-  border-radius: .375rem;
+.tags {
+  display: flex;
+  gap: var(--space-x-sm);
+}
+
+.published_at {
   color: var(--color-gray-dark);
 }

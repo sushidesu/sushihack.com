@@ -1,13 +1,9 @@
+import styles from "./Spacer.module.css"
+
 type SpacerProps = {
-  size?: string
+  size?: "sm" | "md" | "lg"
 }
 
-export function Spacer({ size = "1em" }: SpacerProps): JSX.Element {
-  return (
-    <span
-      style={{
-        margin: size,
-      }}
-    />
-  )
+export function Spacer({ size = "md" }: SpacerProps): JSX.Element {
+  return <div className={styles[size]} />
 }

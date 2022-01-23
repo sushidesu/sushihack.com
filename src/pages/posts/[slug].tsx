@@ -2,15 +2,15 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import markdown from "markdown-it"
 import { getHighlighter } from "shiki"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
-import { Layout } from "components/Layout/Layout"
-import { Wrapper } from "components/Wrapper/Wrapper"
-import { Wysiwyg } from "components/Wysiwyg/Wysiwyg"
+import { Layout } from "components/ui/Layout/Layout"
+import { Wrapper } from "components/ui/Wrapper/Wrapper"
+import { Wysiwyg } from "components/ui/Wysiwyg/Wysiwyg"
+import { Spacer } from "components/ui/Spacer"
 import { BlogPostRepository } from "infra/blog-post-repository"
 import { PostData } from "components/interface/post-data"
 import { getSlug } from "utils/getSlug"
-import { PostHeader } from "components/page/posts/PostHeader"
+import { PostHeader } from "components/model/post/PostHeader"
 import { SeoHeaders } from "components/ui/SeoHeaders"
-import styles from "./[slug].module.css"
 
 const genDefaultOgpPath = (root: string) => `${root}/square_salmon.png`
 
@@ -35,10 +35,9 @@ const PostPage = ({
         png: post.thumbnail_png ?? undefined,
       }}
     />
+    <Spacer size="md" />
     <Wrapper>
-      <Wysiwyg>
-        <div dangerouslySetInnerHTML={{ __html: bodyHtml }}></div>
-      </Wysiwyg>
+      <Wysiwyg contentHTML={bodyHtml} />
     </Wrapper>
   </Layout>
 )
