@@ -1,5 +1,4 @@
-import { Avatar } from "components/model/post/Avatar"
-import { PostMetaItem } from "components/model/post/PostMetaItem"
+import { PostMetaTime } from "components/model/post/PostMetaTime"
 import { Thumbnail } from "components/model/post/Thumbnail"
 import styles from "./PostHeader.module.css"
 
@@ -22,12 +21,7 @@ export const PostHeader = (props: PostHeaderProps): JSX.Element => {
         <h1 className={styles["post-title"]}>{title}</h1>
       </div>
       <div className={styles["post-meta-list"]}>
-        <PostMetaItem
-          icon={<Avatar size="40px" src={avatar} />}
-          title="Written By"
-          content="sushidesu"
-        />
-        <PostMetaItem title="Published At" time={publishedAt} />
+        <PostMetaTime isoTimeString={publishedAt} />
       </div>
     </div>
   )
