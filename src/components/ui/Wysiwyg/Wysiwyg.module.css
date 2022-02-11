@@ -48,12 +48,12 @@
 
 .outer ul {
   margin-top: 1.2rem;
+  padding-left: var(--space-x-lg);
   list-style-type: disc;
 }
 
 .outer ul li {
   margin-top: var(--space-y-sm);
-  margin-left: 20px;
 }
 
 .outer blockquote {
