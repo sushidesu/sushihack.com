@@ -2,6 +2,7 @@ import { SeoHeaders } from "components/ui/SeoHeaders"
 import { Layout } from "components/ui/Layout/Layout"
 import { Wrapper } from "components/ui/Wrapper/Wrapper"
 import { Wysiwyg } from "components/ui/Wysiwyg/Wysiwyg"
+import { Spacer } from "components/ui/Spacer"
 
 # About
 
@@ -22,6 +23,7 @@ export default ({ children }) => (
     />
     <Wrapper py px>
       <Wysiwyg>{ children }</Wysiwyg>
+      <Spacer size="lg" />
     </Wrapper>
   </Layout>
 )

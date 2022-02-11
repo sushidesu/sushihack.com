@@ -23,10 +23,11 @@
 
   --space-x-sm: 6px;
   --space-x-md: 12px;
+  --space-x-lg: 24px;
 
   --space-y-sm: 10px;
-  --space-y-md: 16px;
-  --space-y-lg: 24px;
+  --space-y-md: 24px;
+  --space-y-lg: 32px;
 
 }
 
@@ -49,7 +50,9 @@ body {
 }
 
 *, :after, :before {
-  box-sizing: inherit;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 a {

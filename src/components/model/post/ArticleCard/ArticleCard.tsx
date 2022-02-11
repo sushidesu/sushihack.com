@@ -28,21 +28,23 @@ export function ArticleCard({
   tags,
 }: Props): JSX.Element {
   return (
-    <div className={styles.outer}>
+    <article className={styles.outer}>
       {/* thumbnail */}
-      <div className={styles["thumbnail"]}>
+      <section className={styles["thumbnail"]}>
         <Thumbnail size="sm" webp={thumbnailWebp} png={thumbnailPng} />
-      </div>
+      </section>
       {/* content */}
       <div className={styles.inner}>
         {/* title */}
-        <p className={styles.title}>
-          <Link href={path} passHref>
-            <a>{title}</a>
-          </Link>
-        </p>
+        <header>
+          <h2 className={styles.title}>
+            <Link href={path} passHref>
+              <a>{title}</a>
+            </Link>
+          </h2>
+        </header>
         {/* details */}
-        <div className={styles["details"]}>
+        <section className={styles["details"]}>
           <div className={styles.tags}>
             {tags.map((tag) => (
               <Link key={tag.id} href={tag.path} passHref>
@@ -55,8 +57,8 @@ export function ArticleCard({
           <div className={styles["published_at"]}>
             <p>{formatDate(publishedAt)}</p>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </article>
   )
 }

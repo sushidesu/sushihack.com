@@ -2,8 +2,9 @@
   padding-bottom: 1rem;
 }
 
-.outer > *:first-child {
-  margin-top: 1rem;
+.outer>*:first-child {
+  /* ページの先頭の余白を調整する */
+  margin-top: 2rem;
 }
 
 .outer h1 {
@@ -36,7 +37,8 @@
   overflow-x: auto;
 }
 
-.outer p + p {
+/* 見出しとの余白は狭めにする、それ以外は普通の余白を開ける */
+.outer :not(h1, h2, h3)+p {
   margin-top: 1.5rem;
 }
 
@@ -44,12 +46,19 @@
   color: var(--color-link);
 }
 
-.outer > ul {
+.outer ul {
   margin-top: 1.2rem;
+  padding-left: var(--space-x-lg);
   list-style-type: disc;
 }
 
-.outer > ul > li {
+.outer ul li {
   margin-top: var(--space-y-sm);
-  margin-left: 20px;
+}
+
+.outer blockquote {
+  margin-top: var(--space-y-md);
+  padding: 0 1em;
+  color: var(--color-gray-dark);
+  border-left: 0.25em solid var(--color-space-gray-light);
 }
