@@ -14,7 +14,7 @@ export class BlogPostRepository implements IBlogPostRepository {
   async getAllPosts() {
     const query = gql`
       {
-        posts {
+        posts(orderBy: published_DESC) {
           id
           published
           slug
@@ -61,7 +61,7 @@ export class BlogPostRepository implements IBlogPostRepository {
   async getAllPostsSmall(): Promise<PostDataSmall[]> {
     const query = gql`
       {
-        posts {
+        posts(orderBy: published_DESC) {
           id
           slug
           title
