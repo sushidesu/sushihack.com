@@ -3,7 +3,8 @@
 }
 
 .outer > *:first-child {
-  margin-top: 1rem;
+  /* ページの先頭の余白を調整する */
+  margin-top: 2rem;
 }
 
 .outer h1 {
