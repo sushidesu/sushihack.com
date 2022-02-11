@@ -34,3 +34,7 @@ yarn-error.log*
 .vercel
 
 tsconfig.tsbuildinfo
+
+# sitemaps (generate dynamically)
+public/robots.txt
+public/sitemap*.xml
