@@ -35,9 +35,10 @@ const PostPage = ({
         png: post.thumbnail_png ?? undefined,
       }}
     />
-    <Spacer size="md" />
+    <Spacer size="sm" />
     <Wrapper>
       <Wysiwyg contentHTML={bodyHtml} />
+      <Spacer size="lg" />
     </Wrapper>
   </Layout>
 )
