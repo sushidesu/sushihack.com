@@ -24,7 +24,11 @@ export const getStaticProps: GetStaticProps<{
 const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <Layout>
-      <SeoHeaders title="sushihack" path="/" />
+      <SeoHeaders
+        title="sushihack"
+        description={"(すし職人)sushidesuのブログ"}
+        path="/"
+      />
 
       <Wrapper>
         <section>
