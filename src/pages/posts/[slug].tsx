@@ -11,6 +11,7 @@ import { PostData } from "components/interface/post-data"
 import { getSlug } from "utils/getSlug"
 import { PostHeader } from "components/model/post/PostHeader"
 import { SeoHeaders } from "components/ui/SeoHeaders"
+import { PostFooter } from "components/model/post/PostFooter"
 
 const genDefaultOgpPath = (root: string) => `${root}/square_salmon.png`
 
@@ -39,6 +40,14 @@ const PostPage = ({
     <Wrapper>
       <Wysiwyg contentHTML={bodyHtml} />
       <Spacer size="lg" />
+      {(post.prevPost || post.nextPost) && (
+        <>
+          <nav>
+            <PostFooter prevPost={post.prevPost} nextPost={post.nextPost} />
+          </nav>
+          <Spacer size="lg" />
+        </>
+      )}
     </Wrapper>
   </Layout>
 )
@@ -77,7 +86,13 @@ export const getStaticProps: GetStaticProps<{
         return code
       }
     },
+    linkify: true,
   })
+
+  md.linkify.set({
+    fuzzyLink: true,
+  })
+
   const bodyHtml = md.render(post.body)
 
   return {

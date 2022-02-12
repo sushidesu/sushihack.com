@@ -9,6 +9,7 @@
   --color-primary: #fdcb17;
   --color-primary-bg: #d4e3f1;
   --color-earth: #7CD3E6;
+  --color-earth-light: #7cd3e66e;
   --color-link: rgba(30, 64, 175, 1);
   --color-gray-dark: rgba(71, 85, 105, 1);
   --color-space-gray: #4D6A96;
@@ -41,7 +42,7 @@ html {
 body {
   margin: 0;
   color: var(--color-base);
-  background: var(--color-base-bg);
+  background: var(--color-primary-bg);
   word-break: break-word;
   word-wrap: break-word;
   font-family: "Inter", "BlinkMacSystemFont",

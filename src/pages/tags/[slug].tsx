@@ -15,7 +15,7 @@ const TagPage = ({ tag }: InferGetStaticPropsType<typeof getStaticProps>) => (
       path={`/tags/${tag.slug}`}
       useTitleTemplate
     />
-    <h1>{tag.label}</h1>
+    <h1>{`Tag: ${tag.label}`}</h1>
     <Spacer size="md" />
     <List
       items={tag.posts.map((post) => (

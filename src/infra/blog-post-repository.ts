@@ -28,7 +28,7 @@ export class BlogPostRepository implements IBlogPostRepository {
           thumbnail_webp: thumbnail {
             url(
               transformation: {
-                image: { resize: { fit: scale, height: 100, width: 100 } }
+                image: { resize: { fit: scale, height: 200, width: 200 } }
                 document: { output: { format: webp } }
               }
             )
@@ -36,7 +36,7 @@ export class BlogPostRepository implements IBlogPostRepository {
           thumbnail_png: thumbnail {
             url(
               transformation: {
-                image: { resize: { fit: scale, height: 100, width: 100 } }
+                image: { resize: { fit: scale, height: 200, width: 200 } }
                 document: { output: { format: png } }
               }
             )
@@ -91,7 +91,7 @@ export class BlogPostRepository implements IBlogPostRepository {
           thumbnail_webp: thumbnail {
             url(
               transformation: {
-                image: { resize: { fit: scale, height: 100, width: 100 } }
+                image: { resize: { fit: scale, height: 200, width: 200 } }
                 document: { output: { format: webp } }
               }
             )
@@ -99,7 +99,7 @@ export class BlogPostRepository implements IBlogPostRepository {
           thumbnail_png: thumbnail {
             url(
               transformation: {
-                image: { resize: { fit: scale, height: 100, width: 100 } }
+                image: { resize: { fit: scale, height: 200, width: 200 } }
                 document: { output: { format: png } }
               }
             )

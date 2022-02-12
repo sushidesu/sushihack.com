@@ -26,40 +26,38 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <Layout>
       <SeoHeaders
         title="sushihack"
-        description={"(すし職人)sushidesuのブログ"}
+        description={"sushidesu(すし職人)のブログです"}
         path="/"
       />
 
       <Wrapper>
-        <section>
-          <ArticleCardWrapper>
-            {posts.map(
-              ({
-                id,
-                title,
-                publishedAt,
-                thumbnail_png,
-                thumbnail_webp,
-                slug,
-                tags,
-              }) => (
-                <ArticleCard
-                  key={id}
-                  title={title}
-                  publishedAt={publishedAt}
-                  path={`/posts/${slug}`}
-                  thumbnailPng={thumbnail_png ?? undefined}
-                  thumbnailWebp={thumbnail_webp ?? undefined}
-                  tags={tags.map(({ id, label, slug }) => ({
-                    id,
-                    name: label,
-                    path: `/tags/${slug}`,
-                  }))}
-                />
-              )
-            )}
-          </ArticleCardWrapper>
-        </section>
+        <ArticleCardWrapper>
+          {posts.map(
+            ({
+              id,
+              title,
+              publishedAt,
+              thumbnail_png,
+              thumbnail_webp,
+              slug,
+              tags,
+            }) => (
+              <ArticleCard
+                key={id}
+                title={title}
+                publishedAt={publishedAt}
+                path={`/posts/${slug}`}
+                thumbnailPng={thumbnail_png ?? undefined}
+                thumbnailWebp={thumbnail_webp ?? undefined}
+                tags={tags.map(({ id, label, slug }) => ({
+                  id,
+                  name: label,
+                  path: `/tags/${slug}`,
+                }))}
+              />
+            )
+          )}
+        </ArticleCardWrapper>
       </Wrapper>
     </Layout>
   )
