@@ -26,7 +26,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
     <Layout>
       <SeoHeaders
         title="sushihack"
-        description={"(すし職人)sushidesuのブログ"}
+        description={"sushidesu(すし職人)のブログです"}
         path="/"
       />
 
