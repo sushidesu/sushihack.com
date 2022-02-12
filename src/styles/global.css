@@ -41,7 +41,7 @@ html {
 body {
   margin: 0;
   color: var(--color-base);
-  background: var(--color-base-bg);
+  background: var(--color-primary-bg);
   word-break: break-word;
   word-wrap: break-word;
   font-family: "Inter", "BlinkMacSystemFont",
