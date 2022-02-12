@@ -77,7 +77,13 @@ export const getStaticProps: GetStaticProps<{
         return code
       }
     },
+    linkify: true,
   })
+
+  md.linkify.set({
+    fuzzyLink: true,
+  })
+
   const bodyHtml = md.render(post.body)
 
   return {
