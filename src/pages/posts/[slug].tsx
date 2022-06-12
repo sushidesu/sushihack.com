@@ -73,7 +73,7 @@ export const getStaticProps: GetStaticProps<{
   const slug = getSlug(params)
   const post = await postRepository.getPost(slug)
 
-  const highlighter = await getHighlighter({ theme: "material-theme-lighter" })
+  const highlighter = await getHighlighter({ theme: "material-lighter" })
   const md = markdown({
     html: true,
     highlight: (code, lang) => {
