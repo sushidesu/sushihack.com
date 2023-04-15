@@ -5,13 +5,13 @@ type PostFooterProps = {
   prevPost?:
     | {
         title: string
-        path: string
+        slug: string
       }
     | undefined
   nextPost?:
     | {
         title: string
-        path: string
+        slug: string
       }
     | undefined
 }
@@ -23,14 +23,14 @@ export const PostFooter = (props: PostFooterProps) => {
     <div className={styles["wrapper"]}>
       <div>
         {prevPost && (
-          <Link href={prevPost.path} passHref>
+          <Link href={`/posts/${prevPost.slug}`} passHref>
             <a className={styles["prev"]}>{`← ${prevPost.title}`}</a>
           </Link>
         )}
       </div>
       <div>
         {nextPost && (
-          <Link href={nextPost.path} passHref>
+          <Link href={`/posts/${nextPost.slug}`} passHref>
             <a className={styles["next"]}>{`${nextPost.title} →`}</a>
           </Link>
         )}

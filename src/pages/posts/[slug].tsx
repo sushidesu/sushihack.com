@@ -43,7 +43,10 @@ const PostPage = ({
       {(post.prevPost || post.nextPost) && (
         <>
           <nav>
-            <PostFooter prevPost={post.prevPost} nextPost={post.nextPost} />
+            <PostFooter
+              prevPost={post.prevPost ?? undefined}
+              nextPost={post.nextPost ?? undefined}
+            />
           </nav>
           <Spacer size="lg" />
         </>
