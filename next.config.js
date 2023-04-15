@@ -7,6 +7,9 @@ module.exports = (_, { defaultConfig }) => {
    * @type {import('next').NextConfig}
    */
   const nextConfig = withMDX({
+    experimental: {
+      appDir: true,
+    },
     webpack: (config) => {
       config.module.rules.push({
         test: /\.svg$/,
