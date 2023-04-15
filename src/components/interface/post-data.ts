@@ -10,18 +10,14 @@ export interface PostData {
   thumbnail_webp: string | null
   thumbnail_png: string | null
   thumbnail_ogp: string | null
-  nextPost?:
-    | {
-        title: string
-        path: string
-      }
-    | undefined
-  prevPost?:
-    | {
-        title: string
-        path: string
-      }
-    | undefined
+  nextPost: {
+    title: string
+    slug: string
+  } | null
+  prevPost: {
+    title: string
+    slug: string
+  } | null
 }
 
 export interface PostDataSmall

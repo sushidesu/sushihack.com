@@ -118,7 +118,34 @@ export class BlogPostRepository implements IBlogPostRepository {
     const { post } = await this.gqlClient.request<{ post: PostModel }>(query, {
       slug: slug,
     })
-    return this.convertPost(post)
+
+    const connections = gql`
+      query ConnectionsQuery($id: String!) {
+        next: postsConnection(after: $id, first: 1) {
+          edges {
+            node {
+              id
+              title
+              slug
+            }
+          }
+        }
+        prev: postsConnection(before: $id, last: 1) {
+          edges {
+            node {
+              id
+              title
+              slug
+            }
+          }
+        }
+      }
+    `
+    const { prev, next } = await this.gqlClient.request<{
+      prev: PostConnection
+      next: PostConnection
+    }>(connections, { id: post.id })
+    return this.convertPost(post, prev, next)
   }
 
   async getAllTags(): Promise<TagData[]> {
@@ -156,7 +183,11 @@ export class BlogPostRepository implements IBlogPostRepository {
     return this.convertTagWithPosts(tag)
   }
 
-  private convertPost(model: PostModel): PostData {
+  private convertPost(
+    model: PostModel,
+    prev?: PostConnection,
+    next?: PostConnection
+  ): PostData {
     return {
       id: model.id,
       publishedAt: model.published,
@@ -167,6 +198,18 @@ export class BlogPostRepository implements IBlogPostRepository {
       thumbnail_png: model.thumbnail_png?.url ?? null,
       thumbnail_webp: model.thumbnail_webp?.url ?? null,
       thumbnail_ogp: model.thumbnail_ogp?.url ?? null,
+      prevPost: prev?.edges[0]
+        ? {
+            title: prev.edges[0].node.title,
+            slug: prev.edges[0].node.slug,
+          }
+        : null,
+      nextPost: next?.edges[0]
+        ? {
+            title: next.edges[0].node.title,
+            slug: next.edges[0].node.slug,
+          }
+        : null,
     }
   }
   private convertSmallPost(
@@ -194,4 +237,14 @@ export class BlogPostRepository implements IBlogPostRepository {
       posts: model.posts.map((post) => this.convertSmallPost(post)),
     }
   }
+}
+
+type PostConnection = {
+  edges: {
+    node: {
+      id: string
+      slug: string
+      title: string
+    }
+  }[]
 }
