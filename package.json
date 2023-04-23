@@ -14,9 +14,9 @@
     "*.{ts,tsx,js,jsx}": "prettier --write"
   },
   "dependencies": {
-    "@mdx-js/loader": "^2.1.5",
-    "@mdx-js/react": "^2.1.5",
-    "@next/mdx": "^12.3.1",
+    "@mdx-js/loader": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
+    "@next/mdx": "^13.3.1",
     "date-fns": "^2.29.3",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
@@ -31,6 +31,7 @@
     "@svgr/webpack": "^6.5.0",
     "@types/markdown-it": "^12.2.3",
     "@types/marked": "^4.0.7",
+    "@types/mdx": "^2.0.4",
     "@types/node": "^18.11.4",
     "@types/react": "^18.0.21",
     "husky": "^8.0.1",
