@@ -23,15 +23,15 @@ export const PostFooter = (props: PostFooterProps) => {
     <div className={styles["wrapper"]}>
       <div>
         {prevPost && (
-          <Link href={`/posts/${prevPost.slug}`} passHref>
-            <a className={styles["prev"]}>{`← ${prevPost.title}`}</a>
+          <Link href={`/posts/${prevPost.slug}`} className={styles["prev"]}>
+            {`← ${prevPost.title}`}
           </Link>
         )}
       </div>
       <div>
         {nextPost && (
-          <Link href={`/posts/${nextPost.slug}`} passHref>
-            <a className={styles["next"]}>{`${nextPost.title} →`}</a>
+          <Link href={`/posts/${nextPost.slug}`} className={styles["next"]}>
+            {`${nextPost.title} →`}
           </Link>
         )}
       </div>

@@ -10,9 +10,7 @@ export function PostItem({ title, path }: PostItemProps): JSX.Element {
   return (
     <div>
       <p className={styles.postTitle}>
-        <Link passHref href={path}>
-          <a>{title}</a>
-        </Link>
+        <Link href={path}>{title}</Link>
       </p>
     </div>
   )
