@@ -9,36 +9,32 @@ import { BlogPostRepository } from "../infra/blog-post-repository"
 export default function HomePage(): JSX.Element {
   const posts: PostData[] = []
   return (
-    <Layout>
-      <Wrapper>
-        <ArticleCardWrapper>
-          {posts.map(
-            ({
+    <ArticleCardWrapper>
+      {posts.map(
+        ({
+          id,
+          title,
+          publishedAt,
+          thumbnail_png,
+          thumbnail_webp,
+          slug,
+          tags,
+        }) => (
+          <ArticleCard
+            key={id}
+            title={title}
+            publishedAt={publishedAt}
+            path={`/posts/${slug}`}
+            thumbnailPng={thumbnail_png ?? undefined}
+            thumbnailWebp={thumbnail_webp ?? undefined}
+            tags={tags.map(({ id, label, slug }) => ({
               id,
-              title,
-              publishedAt,
-              thumbnail_png,
-              thumbnail_webp,
-              slug,
-              tags,
-            }) => (
-              <ArticleCard
-                key={id}
-                title={title}
-                publishedAt={publishedAt}
-                path={`/posts/${slug}`}
-                thumbnailPng={thumbnail_png ?? undefined}
-                thumbnailWebp={thumbnail_webp ?? undefined}
-                tags={tags.map(({ id, label, slug }) => ({
-                  id,
-                  name: label,
-                  path: `/tags/${slug}`,
-                }))}
-              />
-            )
-          )}
-        </ArticleCardWrapper>
-      </Wrapper>
-    </Layout>
+              name: label,
+              path: `/tags/${slug}`,
+            }))}
+          />
+        )
+      )}
+    </ArticleCardWrapper>
   )
 }
