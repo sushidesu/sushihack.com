@@ -1,7 +1,6 @@
 import { ReactNode } from "react"
-import { Layout } from "components/ui/Layout/Layout"
-import { Wrapper } from "components/ui/Wrapper/Wrapper"
 import "../styles/global.css"
+import { Layout } from "components/ui/Layout/Layout"
 
 export default function RootLayout({
   children,
@@ -11,9 +10,7 @@ export default function RootLayout({
   return (
     <html lang={"ja"}>
       <body>
-        <Layout>
-          <Wrapper>{children}</Wrapper>
-        </Layout>
+        <Layout>{children}</Layout>
       </body>
     </html>
   )

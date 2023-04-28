@@ -1,6 +1,5 @@
 import { Header } from "../Header/Header"
 import { Footer } from "../Footer/Footer"
-import { Container } from "../Container/Container"
 import styles from "./Layout.module.css"
 
 export type Props = {
@@ -10,9 +9,7 @@ export type Props = {
 export const Layout = ({ children }: Props): JSX.Element => (
   <div className={styles.outer}>
     <Header />
-    <main className={styles.main}>
-      <Container>{children}</Container>
-    </main>
+    <main className={styles.main}>{children}</main>
     <Footer />
   </div>
 )
