@@ -38,19 +38,15 @@ export function ArticleCard({
         {/* title */}
         <header>
           <h2 className={styles.title}>
-            <Link href={path} passHref>
-              <a>{title}</a>
-            </Link>
+            <Link href={path}>{title}</Link>
           </h2>
         </header>
         {/* details */}
         <section className={styles["details"]}>
           <div className={styles.tags}>
             {tags.map((tag) => (
-              <Link key={tag.id} href={tag.path} passHref>
-                <a>
-                  <Tag>{tag.name}</Tag>
-                </a>
+              <Link key={tag.id} href={tag.path}>
+                <Tag>{tag.name}</Tag>
               </Link>
             ))}
           </div>

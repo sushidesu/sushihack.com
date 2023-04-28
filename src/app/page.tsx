@@ -1,13 +1,10 @@
-import { SeoHeaders } from "components/ui/SeoHeaders"
-import { Layout } from "components/ui/Layout/Layout"
-import { Wrapper } from "components/ui/Wrapper/Wrapper"
 import { ArticleCard } from "components/model/post/ArticleCard/ArticleCard"
 import { ArticleCardWrapper } from "components/model/post/ArticleCardWrapper/ArticleCardWrapper"
-import { PostData } from "../components/interface/post-data"
 import { BlogPostRepository } from "../infra/blog-post-repository"
 
-export default function HomePage(): JSX.Element {
-  const posts: PostData[] = []
+export default async function HomePage(): Promise<JSX.Element> {
+  const blogPostRepository = new BlogPostRepository()
+  const posts = await blogPostRepository.getAllPosts()
   return (
     <ArticleCardWrapper>
       {posts.map(
