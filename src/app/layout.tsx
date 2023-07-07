@@ -2,6 +2,7 @@ import { ReactNode } from "react"
 import "../styles/global.css"
 import { Layout } from "components/ui/Layout/Layout"
 import { Metadata } from "next"
+import { defaultDescription, defaultTitle } from "constants/default-metadata"
 
 export default function RootLayout({
   children,
@@ -41,8 +42,8 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   title: {
-    default: "sushihack",
+    default: defaultTitle,
     template: "%s | sushihack",
   },
-  description: "sushidesu(すし職人)のブログです",
+  description: defaultDescription,
 }

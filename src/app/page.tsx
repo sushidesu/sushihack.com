@@ -1,8 +1,10 @@
+import { Metadata } from "next"
 import { ArticleCard } from "components/model/post/ArticleCard/ArticleCard"
 import { ArticleCardWrapper } from "components/model/post/ArticleCardWrapper/ArticleCardWrapper"
 import { BlogPostRepository } from "../infra/blog-post-repository"
 import { Container } from "components/ui/Container/Container"
 import { Wrapper } from "components/ui/Wrapper/Wrapper"
+import { defaultDescription, defaultTitle } from "constants/default-metadata"
 
 export default async function HomePage(): Promise<JSX.Element> {
   const blogPostRepository = new BlogPostRepository()
@@ -40,4 +42,18 @@ export default async function HomePage(): Promise<JSX.Element> {
       </Wrapper>
     </Container>
   )
+}
+
+export const metadata: Metadata = {
+  title: defaultTitle,
+  twitter: {
+    card: "summary_large_image",
+  },
+  openGraph: {
+    url: "/",
+    title: defaultTitle,
+    images: "/ogp.png",
+    type: "article",
+    description: defaultDescription,
+  },
 }
