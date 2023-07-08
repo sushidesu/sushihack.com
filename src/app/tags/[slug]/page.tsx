@@ -76,6 +76,8 @@ export async function generateMetadata({
   const tag = await postRepository.getTagWithPosts(slug)
   const title = `Tag: ${tag.label}`
 
+  console.log(process.env.VERCEL_URL)
+
   return {
     title,
     description: "",
@@ -88,6 +90,9 @@ export async function generateMetadata({
       images: ["/square_salmon.png"],
       type: "article",
       description: "",
+    },
+    alternates: {
+      canonical: `/tags/${tag.slug}`,
     },
   }
 }

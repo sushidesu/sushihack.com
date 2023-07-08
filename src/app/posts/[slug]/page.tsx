@@ -139,5 +139,8 @@ export async function generateMetadata({
       type: "article",
       description: undefined,
     },
+    alternates: {
+      canonical: `/posts/${post.slug}`,
+    },
   }
 }

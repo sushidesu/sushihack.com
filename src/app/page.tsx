@@ -56,4 +56,7 @@ export const metadata: Metadata = {
     type: "article",
     description: defaultDescription,
   },
+  alternates: {
+    canonical: "/",
+  },
 }
