@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   openGraph: {
-    url: "/",
+    url: "/about",
     title: format(titleTemplate, "About"),
     images: "/ogp.png",
     type: "article",
