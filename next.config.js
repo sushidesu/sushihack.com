@@ -7,6 +7,7 @@ module.exports = (_, { defaultConfig }) => {
    * @type {import('next').NextConfig}
    */
   const nextConfig = withMDX({
+    output: "export",
     experimental: {
       appDir: true,
     },
