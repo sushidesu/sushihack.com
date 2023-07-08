@@ -42,6 +42,7 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
+  metadataBase: new URL(process.env.ORIGIN ?? "http://localhost:3000"),
   title: {
     default: defaultTitle,
     template: titleTemplate,
