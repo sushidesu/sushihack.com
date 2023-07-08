@@ -3,6 +3,7 @@ import "../styles/global.css"
 import { Layout } from "components/ui/Layout/Layout"
 import { Metadata } from "next"
 import { defaultDescription, defaultTitle } from "constants/default-metadata"
+import { titleTemplate } from "constants/title-template"
 
 export default function RootLayout({
   children,
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   title: {
     default: defaultTitle,
-    template: "%s | sushihack",
+    template: titleTemplate,
   },
   description: defaultDescription,
 }

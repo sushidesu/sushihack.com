@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
+import { GetStaticPaths, Metadata } from "next"
 import markdown from "markdown-it"
 import { getHighlighter } from "shiki"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
@@ -12,6 +12,8 @@ import { SeoHeaders } from "components/ui/SeoHeaders"
 import { PostFooter } from "components/model/post/PostFooter"
 import { PageProps } from "../../../../.next/types/app/page"
 import { Container } from "components/ui/Container/Container"
+import { format } from "util"
+import { titleTemplate } from "constants/title-template"
 
 const genDefaultOgpPath = (root: string) => `${root}/square_salmon.png`
 
@@ -102,4 +104,31 @@ export default async function PostPage(props: PageProps) {
   const bodyHtml = md.render(post.body)
 
   return <Post post={post} bodyHtml={bodyHtml} />
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const slug = params.slug
+  if (typeof slug !== "string") {
+    throw new Error("invalid url")
+  }
+
+  const postRepository = new BlogPostRepository()
+  const post = await postRepository.getPost(slug)
+
+  return {
+    title: post.title,
+    description: "",
+    twitter: {
+      card: "summary",
+    },
+    openGraph: {
+      url: `/posts/${post.slug}`,
+      title: format(titleTemplate, post.title),
+      images: [post.thumbnail_ogp ?? "/square_salmon.png"],
+      type: "article",
+      description: undefined,
+    },
+  }
 }
