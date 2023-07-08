@@ -30,6 +30,15 @@ const Tag = ({ tag }: { tag: TagDataWithPosts }) => (
   </Container>
 )
 
+export async function generateStaticParams(): Promise<PageProps["params"][]> {
+  const postRepository = new BlogPostRepository()
+  const tags = await postRepository.getAllTags()
+
+  return tags.map((tag) => ({
+    slug: tag.slug,
+  }))
+}
+
 const getStaticPaths: GetStaticPaths = async () => {
   const postRepository = new BlogPostRepository()
   const tags = await postRepository.getAllTags()

@@ -59,6 +59,15 @@ const Post = ({ post, bodyHtml }: PostProps) => (
   </Container>
 )
 
+export async function generateStaticParams(): Promise<PageProps["params"][]> {
+  const postRepository = new BlogPostRepository()
+  const posts = await postRepository.getAllPostsSmall()
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
 const getStaticPaths: GetStaticPaths = async () => {
   const postRepository = new BlogPostRepository()
   const posts = await postRepository.getAllPostsSmall()
