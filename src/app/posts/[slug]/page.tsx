@@ -1,25 +1,29 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
+import { GetStaticPaths, Metadata } from "next"
 import markdown from "markdown-it"
 import { getHighlighter } from "shiki"
 import { isSupportedLanguage } from "utils/isSupportedLanguage"
-import { Layout } from "components/ui/Layout/Layout"
 import { Wrapper } from "components/ui/Wrapper/Wrapper"
 import { Wysiwyg } from "components/ui/Wysiwyg/Wysiwyg"
 import { Spacer } from "components/ui/Spacer"
 import { BlogPostRepository } from "infra/blog-post-repository"
 import { PostData } from "components/interface/post-data"
-import { getSlug } from "utils/getSlug"
 import { PostHeader } from "components/model/post/PostHeader"
 import { SeoHeaders } from "components/ui/SeoHeaders"
 import { PostFooter } from "components/model/post/PostFooter"
+import { PageProps } from "../../../../.next/types/app/page"
+import { Container } from "components/ui/Container/Container"
+import { format } from "util"
+import { titleTemplate } from "constants/title-template"
 
 const genDefaultOgpPath = (root: string) => `${root}/square_salmon.png`
 
-const PostPage = ({
-  post,
-  bodyHtml,
-}: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Layout>
+type PostProps = {
+  post: PostData
+  bodyHtml: string
+}
+
+const Post = ({ post, bodyHtml }: PostProps) => (
+  <Container>
     <SeoHeaders
       title={post.title}
       path={`/posts/${post.slug}`}
@@ -52,10 +56,19 @@ const PostPage = ({
         </>
       )}
     </Wrapper>
-  </Layout>
+  </Container>
 )
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export async function generateStaticParams(): Promise<PageProps["params"][]> {
+  const postRepository = new BlogPostRepository()
+  const posts = await postRepository.getAllPostsSmall()
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
+const getStaticPaths: GetStaticPaths = async () => {
   const postRepository = new BlogPostRepository()
   const posts = await postRepository.getAllPostsSmall()
   return {
@@ -68,12 +81,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps<{
-  post: PostData
-  bodyHtml: string
-}> = async ({ params }) => {
+export default async function PostPage(props: PageProps) {
+  const slug = props.params.slug
+  if (typeof slug !== "string") {
+    throw new Error("invalid url")
+  }
+
   const postRepository = new BlogPostRepository()
-  const slug = getSlug(params)
   const post = await postRepository.getPost(slug)
 
   const highlighter = await getHighlighter({ theme: "material-lighter" })
@@ -98,12 +112,35 @@ export const getStaticProps: GetStaticProps<{
 
   const bodyHtml = md.render(post.body)
 
+  return <Post post={post} bodyHtml={bodyHtml} />
+}
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const slug = params.slug
+  if (typeof slug !== "string") {
+    throw new Error("invalid url")
+  }
+
+  const postRepository = new BlogPostRepository()
+  const post = await postRepository.getPost(slug)
+
   return {
-    props: {
-      post,
-      bodyHtml,
+    title: post.title,
+    description: "",
+    twitter: {
+      card: "summary",
+    },
+    openGraph: {
+      url: `/posts/${post.slug}`,
+      title: format(titleTemplate, post.title),
+      images: [post.thumbnail_ogp ?? "/square_salmon.png"],
+      type: "article",
+      description: undefined,
+    },
+    alternates: {
+      canonical: `/posts/${post.slug}`,
     },
   }
 }
-
-export default PostPage
